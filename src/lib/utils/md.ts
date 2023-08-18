@@ -8,18 +8,30 @@ import { CONTENT_DIR } from "../constants"
 const contentDir = join(process.cwd(), CONTENT_DIR)
 
 const getPostSlugs = (dir: string, files: string[] = []) => {
-  // Temporal list of content pages allowed to be compiled
-  // When a content page is migrated (and he components being used), should be added to this list
-  const temporalAllowedPages = [
-    "/about",
-    "/bridges",
-    "/community/code-of-conduct",
-    "/community/support",
-    "/energy-consumption",
-    "/guides/how-to-swap-tokens",
-    "/history/",
-    "/smart-contracts",
-    "/whitepaper",
+  // Temporal blacklist of content pages with conflicts
+  // When a content page from this list is migrated (and he components being used), should be removed from this list
+  const blacklist = [
+    "/community/events",
+    "/community/online",
+    "/contributing",
+    "/contributing/translation-program",
+    "/contributing/translation-program/translators-guide",
+    "/cookie-policy",
+    "/deprecated-software",
+    "/foundation",
+    "/nft",
+    "/privacy-policy",
+    "/roadmap",
+    "/roadmap/beacon-chain",
+    "/roadmap/merge",
+    "/roadmap/merge/issuance",
+    "/roadmap/scaling",
+    "/security",
+    "/staking/pools",
+    "/staking/saas",
+    "/staking/solo",
+    "/staking/withdrawals",
+    "/web3",
   ]
 
   // Skip /translations dir for now until we set up i18n
@@ -41,13 +53,18 @@ const getPostSlugs = (dir: string, files: string[] = []) => {
       const fileExtension = extname(name)
 
       if (fileExtension === ".md") {
-        // If it is a .md file (allowed content page), push the path to the files array
-        for (const page of temporalAllowedPages) {
+        // Ignore blacklisted md files from compilation
+        let ignore = false
+        for (const page of blacklist) {
           if (name.includes(page)) {
-            files.push(
-              name.replace("public/content", "").replace("/index.md", "")
-            )
+            ignore = true
           }
+        }
+
+        if (!ignore) {
+          files.push(
+            name.replace("public/content", "").replace("/index.md", "")
+          )
         }
       }
     }
