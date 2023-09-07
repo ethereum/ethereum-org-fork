@@ -17,6 +17,7 @@
     "@storybook/react": "^7.3.2",
     "framer-motion": "^10.13.0",
     "gray-matter": "^4.0.3",
+    "i18next": "^23.5.0",
     "lodash.merge": "^4.6.2",
     "luxon": "^3.4.3",
     "next": "13.4.13",
@@ -24,6 +25,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-emoji-render": "^2.0.1",
+    "react-i18next": "^13.2.2",
     "react-icons": "^4.10.1",
     "recharts": "^2.7.3",
     "remark-gfm": "^3.0.1"
