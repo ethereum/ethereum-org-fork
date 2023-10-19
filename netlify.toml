@@ -7,7 +7,7 @@
   publish = ".next"
 
   # Default build command.
-  command = "yarn build"
+  command = "yarn build:10gb"
 
 [[headers]]
   for = "/*"
