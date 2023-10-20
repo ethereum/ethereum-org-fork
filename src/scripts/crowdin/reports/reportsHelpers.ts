@@ -1,15 +1,13 @@
+// TODO: Refactor to fetch and remove axios package
 import axios, { AxiosResponse } from "axios"
 import { ReportsModel } from "@crowdin/crowdin-api-client"
-import crowdinClient from "@/scripts/crowdin/api-client/crowdinClient"
-import {
-  ReportData,
-  saveReportDataToJson,
-} from "@/scripts/crowdin/reports/fileHelpers"
+import crowdinClient from "../api-client/crowdinClient"
+import { ReportData, saveReportDataToJson } from "./fileHelpers"
 import {
   CROWDIN_PROJECT_ID,
   FIRST_CROWDIN_CONTRIBUTION_DATE,
   REGULAR_RATES,
-} from "@/lib/constants"
+} from "../../../lib/constants"
 
 const { reportsApi } = crowdinClient
 

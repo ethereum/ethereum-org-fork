@@ -1,7 +1,7 @@
 import fs from "fs"
 import path from "path"
-import { filterAndFormatData } from "@/scripts/crowdin/reports/dataHelpers"
-import { getLangCodeFromCrowdinCode } from "@/lib/utils/getCrowdinCode"
+import { filterAndFormatData } from "./dataHelpers"
+import { getLangCodeFromCrowdinCode } from "../../../lib/utils/getCrowdinCode"
 
 export type CombinedData = {
   lang: string
@@ -29,7 +29,7 @@ export interface ReportData {
 
 const combinedFilePath = path.join(
   __dirname,
-  "@/data/crowdin/combined-translators.json"
+  "../../../data/crowdin/combined-translators.json"
 )
 
 export async function saveReportDataToJson(
@@ -87,7 +87,7 @@ interface ExcludedTranslatorsData {
 export async function loadExcludedTranslators(): Promise<ExcludedTranslatorsData> {
   const filePath = path.join(
     __dirname,
-    "@/data/crowdin/excluded-translators.json"
+    "../../../data/crowdin/excluded-translators.json"
   )
   let excludedTranslators = {
     excludedNames: [],

@@ -1,5 +1,5 @@
 import { ReportsModel } from "@crowdin/crowdin-api-client"
-import i18nConfig from "@/../i18n.config.json"
+import i18nConfig from "../../i18n.config.json"
 
 export const CONTENT_DIR = "public/content"
 export const TRANSLATIONS_DIR = "public/content/translations"

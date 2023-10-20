@@ -2,12 +2,12 @@ import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 
-import type { Lang } from "@/lib/types"
+import type { Lang } from "../lib/types"
 const argv = require("minimist")(process.argv.slice(2))
 
 const LANG_ARG: string | null = argv.lang || null
-const PATH_TO_INTL_MARKDOWN = "./src/content/translations/"
-const PATH_TO_ALL_CONTENT = "./src/content/"
+const PATH_TO_INTL_MARKDOWN = "./public/content/translations/"
+const PATH_TO_ALL_CONTENT = "./public/content/"
 const TUTORIAL_DATE_REGEX = new RegExp("\\d{4}-\\d{2}-\\d{2}")
 // Original
 const WHITE_SPACE_IN_LINK_TEXT = new RegExp(

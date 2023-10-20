@@ -1,6 +1,6 @@
-import { findFileIdsByPaths } from "@/scripts/crowdin/utils"
-import getCrowdinCode from "@/lib/utils/getCrowdinCode"
-import { fetchTranslationCostsReport } from "@/scripts/crowdin/reports/reportsHelpers"
+import { findFileIdsByPaths } from "../utils"
+import { fetchTranslationCostsReport } from "./reportsHelpers"
+import getCrowdinCode from "../../../lib/utils/getCrowdinCode"
 
 async function getTranslationCostsReports(translatedMarkdownPaths) {
   for (let lang in translatedMarkdownPaths) {

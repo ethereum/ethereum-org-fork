@@ -1,8 +1,8 @@
-import fetchAndSaveFileIds from "@/scripts/crowdin/source-files/fetchAndSaveFileIds"
-import getAndSaveDirectories from "@/scripts/crowdin/source-files/fetchAndSaveDirectories"
-import getDirectoryIds from "@/scripts/crowdin/utils"
-import getTranslationCostsReports from "@/scripts/crowdin/reports/getTranslationCostsReports"
-import { getTranslatedMarkdownPaths } from "@/scripts/markdownChecker"
+import fetchAndSaveFileIds from "./source-files/fetchAndSaveFileIds"
+import getAndSaveDirectories from "./source-files/fetchAndSaveDirectories"
+import getDirectoryIds from "./utils"
+import getTranslationCostsReports from "./reports/getTranslationCostsReports"
+import { getTranslatedMarkdownPaths } from "../markdownChecker"
 
 async function main() {
   await getAndSaveDirectories()

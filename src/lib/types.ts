@@ -88,6 +88,15 @@ export type Lang =
   | "zh"
   | "zh-tw"
 
+export interface Language {
+  code: Lang
+  crowdinCode: string
+  name: string
+  localName: string
+  langDir: Direction
+  dateFormat: string
+}
+
 export type StaticPaths = { params: { slug: string[] }; locale: string }[]
 
 export type TranslationKey = string

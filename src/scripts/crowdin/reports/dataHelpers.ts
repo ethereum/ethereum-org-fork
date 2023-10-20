@@ -1,7 +1,4 @@
-import {
-  UserData,
-  loadExcludedTranslators,
-} from "@/scripts/crowdin/reports/fileHelpers"
+import { UserData, loadExcludedTranslators } from "./fileHelpers"
 
 export async function filterAndFormatData(data: UserData[]) {
   const excludedTranslators = await loadExcludedTranslators()

@@ -1,6 +1,6 @@
 import fs from "fs"
 import path from "path"
-import { languagePathRootRegExp } from "@/lib/constants"
+import { languagePathRootRegExp } from "../../lib/constants"
 
 export function getDirectoryIdsFromJson() {
   try {
@@ -18,7 +18,7 @@ export function getDirectoryIdsFromJson() {
 }
 
 export async function findFileIdsByPaths(paths, lang) {
-  const filePath = path.join(__dirname, "@/data/crowdin/file-ids.json")
+  const filePath = path.join(__dirname, "../../data/crowdin/file-ids.json")
   const fileData = JSON.parse(fs.readFileSync(filePath, "utf8"))
 
   const pathToIdMap = fileData.reduce((map, item) => {
