@@ -2,6 +2,9 @@
 
 const i18nConfig = require("./i18n.config.json")
 
+/**
+ * @type {import('next').NextConfig}
+ */
 module.exports = {
   reactStrictMode: true,
   i18n: {
@@ -14,4 +17,8 @@ module.exports = {
   // experimental: {
   //   mdxRs: true,
   // },
+  experimental: {
+    workerThreads: false,
+    cpus: 2,
+  },
 }
