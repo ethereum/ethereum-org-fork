@@ -24,7 +24,8 @@ import Text from "@/components/OldText"
 
 import { getLocaleTimestamp } from "@/lib/utils/time"
 import { trackCustomEvent } from "@/lib/utils/matomo"
-import type { CrowdinContributor, ContributorProfile, Lang } from "@/lib/types"
+import type { Lang } from "@/lib/types"
+import type { Author } from "@/lib/interfaces"
 
 // export interface Commit {
 //   author: Author
@@ -55,7 +56,7 @@ const ContributorList = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
-const Contributor = ({ contributor }: { contributor: ContributorProfile }) => {
+const Contributor = ({ contributor }: { contributor: Author }) => {
   return (
     <ListItem p={2} display="flex" alignItems="center">
       <Avatar
@@ -77,7 +78,7 @@ const Contributor = ({ contributor }: { contributor: ContributorProfile }) => {
 
 export interface IProps extends FlexProps {
   editPath?: string
-  contributors: Array<ContributorProfile | CrowdinContributor>
+  contributors: Array<Author>
   loading: Boolean
   error?: boolean
   lastEdit: string
@@ -97,7 +98,7 @@ const FileContributors: React.FC<IProps> = ({
   const language = "en"
 
   if (error) return null
-  const lastContributor: ContributorProfile = contributors.length ? contributors[0] : {
+  const lastContributor: Author = contributors.length ? contributors[0] : {
     name: "",
     email: "",
     avatarUrl: "",
