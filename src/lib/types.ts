@@ -88,7 +88,9 @@ export type Lang =
   | "zh"
   | "zh-tw"
 
-export interface Language {
+export type Direction = "rtl" | "ltr" | "auto"
+
+export type Language = {
   code: Lang
   crowdinCode: string
   name: string
