@@ -1,6 +1,7 @@
 // Library imports
 import React, { ReactNode, useState } from "react"
 import { Flex, FlexProps, Heading } from "@chakra-ui/react"
+import { useRouter } from "next/router"
 // Component imports
 import { Button } from "./Buttons"
 // TODO: add Translation when i18n is set up
@@ -8,11 +9,9 @@ import { Button } from "./Buttons"
 // SVG imports
 import { FeedbackThumbsUpIcon } from "./icons"
 // Utility imports
-// TODO: add trackCustomEvent when util is migrated
-// import { trackCustomEvent } from "../utils/matomo"
+import { trackCustomEvent } from "@/lib/utils/matomo"
 // Hook imports
-// TODO: add useSurvey after hook is migrated
-// import { useSurvey } from "../hooks/useSurvey"
+import { useSurvey } from "@/hooks/useSurvey"
 
 export interface IProps extends FlexProps {
   prompt?: string
@@ -25,10 +24,10 @@ const FeedbackCard: React.FC<IProps> = ({
   ...props
 }) => {
   const [feedbackSubmitted, setFeedbackSubmitted] = useState(false)
-  // const surveyUrl = useSurvey(feedbackSubmitted)
+  const surveyUrl = useSurvey(feedbackSubmitted)
 
-  const location = typeof window !== "undefined" ? window.location.href : ""
-  const isTutorial = location.includes("tutorials")
+  const { asPath } = useRouter()
+  const isTutorial = asPath.includes("tutorials")
 
   const getTitle = (feedbackSubmitted: boolean): ReactNode => {
     if (!feedbackSubmitted) {
@@ -49,22 +48,23 @@ const FeedbackCard: React.FC<IProps> = ({
   }
 
   const handleSubmit = (choice: boolean): void => {
-    // TODO: add trackCustomEvent when util is migrated
-    // trackCustomEvent({
-    //   eventCategory: `Page is helpful feedback`,
-    //   eventAction: `Clicked`,
-    //   eventName: String(choice),
-    // })
+    trackCustomEvent({
+      eventCategory: `Page is helpful feedback`,
+      eventAction: `Clicked`,
+      eventName: String(choice),
+    })
     setFeedbackSubmitted(true)
   }
+
   const handleSurveyOpen = (): void => {
-    // TODO: add trackCustomEvent when util is migrated
-    // trackCustomEvent({
-    //   eventCategory: `Feedback survey opened`,
-    //   eventAction: `Clicked`,
-    //   eventName: "Feedback survey opened",
-    // })
-    // window && surveyUrl && window.open(surveyUrl, "_blank")
+    trackCustomEvent({
+      eventCategory: `Feedback survey opened`,
+      eventAction: `Clicked`,
+      eventName: "Feedback survey opened",
+    })
+    typeof window !== "undefined" &&
+      surveyUrl &&
+      window.open(surveyUrl, "_blank")
   }
   return (
     <Flex
