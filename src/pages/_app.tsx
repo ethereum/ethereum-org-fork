@@ -1,7 +1,5 @@
-import { ReactNode } from "react"
-// ChakraProvider import updated as recommended on https://github.com/chakra-ui/chakra-ui/issues/4975#issuecomment-1174234230
-// to reduce bundle size. Should be reverted to "@chakra-ui/react" in case on theme issues
-import { ChakraProvider } from "@chakra-ui/provider"
+import { ChakraBaseProvider } from "@chakra-ui/react"
+
 // Chakra custom theme
 import theme from "@/@chakra-ui/theme"
 // Fonts
@@ -24,9 +22,9 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
           }
         `}
       </style>
-      <ChakraProvider theme={theme}>
+      <ChakraBaseProvider theme={theme}>
         {getLayout(<Component {...pageProps} />)}
-      </ChakraProvider>
+      </ChakraBaseProvider>
     </>
   )
 }
