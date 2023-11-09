@@ -5,7 +5,7 @@ import type { SourceHeadingItem, ToCItem } from "@/lib/types"
 // RegEx patterns
 const customIdRegEx = /^.+(\s*\{#([^\}]+?)\}\s*)$/
 const unicodeEmojiRegEx = /\\u{[0-9A-F]+}/gi
-const unicodeIntlRegEx = /(\\u[0-9A-F]{2,4}|\\x[0-9A-F]{2})/gi
+const unicodeIntlRegEx = /(\\u[0-9A-F]{2,4}|\\x[0-9A-F]{2})/g
 const compiledSourceHeadingRegEx =
   /mdx\("h([2-4])",\w+?\(.+?\{id:"([^"]+)"\}\)((,("([^"]+)"|mdx\([^\)]+\)))+)\)/g
 const mdxShallowFncRegEx = /mdx\("?(\w+)"?,\{[^\}]+\}(,\"([^\"]+)\")?\)/g
