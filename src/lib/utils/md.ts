@@ -33,13 +33,31 @@ const getPostSlugs = (dir: string, files: string[] = []) => {
       const fileExtension = extname(name)
 
       if (fileExtension === ".md") {
-        files.push(
-          name
-            .replace(CURRENT_CONTENT_DIR, "")
-            .replace("/index.md", "")
-            // For replacing forward slashes generated in windows file paths
-            .replace(/\\/g, "/")
-        )
+        if (process.env.ALLOWED_PAGES) {
+          const temporalAllowedPages = process.env.ALLOWED_PAGES.split(",")
+          // If it is a .md file (allowed content page), push the path to the files array
+          for (const page of temporalAllowedPages) {
+            const fullPagePath = join(CURRENT_CONTENT_DIR, page)
+
+            if (name.includes(fullPagePath)) {
+              files.push(
+                fullPagePath
+                  .replace(CURRENT_CONTENT_DIR, "")
+                  .replace("/index.md", "")
+                  // For replacing forward slashes generated in windows file paths
+                  .replace(/\\/g, "/")
+              )
+            }
+          }
+        } else {
+          files.push(
+            name
+              .replace(CURRENT_CONTENT_DIR, "")
+              .replace("/index.md", "")
+              // For replacing forward slashes generated in windows file paths
+              .replace(/\\/g, "/")
+          )
+        }
       }
     }
   }
