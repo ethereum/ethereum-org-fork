@@ -1,4 +1,3 @@
-import * as React from "react"
 import {
   Alert as ChakraAlert,
   AlertDescription,
@@ -31,15 +30,13 @@ interface AlertProps extends Omit<ChakraAlertProps, "status"> {
   onClose?: () => void
 }
 
-const Alert = forwardRef<AlertProps, "div">((props, ref) => {
-  const {
-    hasIcon = true,
-    description,
-    onClose,
-    status = "info",
-    ...rest
-  } = props
-
+const Alert = forwardRef<AlertProps, "div">(({
+  hasIcon = true,
+  description,
+  onClose,
+  status = "info",
+  ...props
+}, ref) => {
   const isCloseable = !!onClose
 
   const closeButtonStateStyles = {
@@ -52,7 +49,7 @@ const Alert = forwardRef<AlertProps, "div">((props, ref) => {
   }
 
   return (
-    <ChakraAlert ref={ref} position="relative" status={status} {...rest}>
+    <ChakraAlert ref={ref} position="relative" status={status} {...props}>
       <>
         {hasIcon ? <AlertIcon ms={isCloseable ? "auto" : undefined} /> : null}
         <AlertDescription>{description}</AlertDescription>
