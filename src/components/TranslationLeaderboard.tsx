@@ -1,57 +1,54 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { reverse, sortBy } from "lodash"
 import {
   Box,
+  type ButtonProps,
   Button as ChakraButton,
   Flex,
   Img,
   useColorModeValue,
   useRadio,
   useRadioGroup,
+  type UseRadioProps,
 } from "@chakra-ui/react"
 
-import Emoji from "./Emoji"
-import Text from "./OldText"
-import Translation from "./Translation"
+import Emoji from "@/components/Emoji"
+import Text from "@/components/OldText"
+import Translation from "@/components/Translation"
+import type { ChildOnlyProp, CrowdinData } from "@/lib/types"
 
-export interface IProps {
-  monthData: any
-  quarterData: any
-  allTimeData: any
-}
+const Button = (props: ButtonProps) => (
+  <ChakraButton
+    display="flex"
+    borderRadius="2rem"
+    borderWidth="1px"
+    borderStyle="solid"
+    borderColor="text"
+    color="text"
+    alignItems="center"
+    py={4}
+    px={6}
+    m={2}
+    h="full"
+    cursor="pointer"
+    bg="transparent"
+    w={{ base: "full", lg: "initial" }}
+    justifyContent="center"
+    ml={{ base: "0", lg: "2" }}
+    mr={{ base: "0", lg: "2" }}
+    _hover={{
+      color: "primary.base",
+      borderColor: "primary.base",
+    }}
+    _focus={{}}
+    _active={{}}
+    {...props}
+  />
+)
 
-const Button = (props) => {
-  return (
-    <ChakraButton
-      display="flex"
-      borderRadius="2rem"
-      borderWidth="1px"
-      borderStyle="solid"
-      borderColor="text"
-      color="text"
-      alignItems="center"
-      py={4}
-      px={6}
-      m={2}
-      h="full"
-      cursor="pointer"
-      bg="transparent"
-      w={{ base: "full", lg: "initial" }}
-      justifyContent="center"
-      ml={{ base: "0", lg: "2" }}
-      mr={{ base: "0", lg: "2" }}
-      _hover={{
-        color: "primary.base",
-        borderColor: "primary.base",
-      }}
-      _focus={{}}
-      _active={{}}
-      {...props}
-    />
-  )
-}
+type RadioCardProps = UseRadioProps & ChildOnlyProp
 
-const RadioCard = (props) => {
+const RadioCard = (props: RadioCardProps) => {
   const shadow = useColorModeValue("tableBox.light", "tableBox.dark")
   const { getInputProps, getCheckboxProps } = useRadio(props)
 
@@ -82,23 +79,29 @@ const RadioCard = (props) => {
   )
 }
 
-const TranslationLeaderboard: React.FC<IProps> = ({
+type TranslationLeaderboardProps = {
+  monthData: CrowdinData[]
+  quarterData: CrowdinData[]
+  allTimeData: CrowdinData[]
+}
+
+const TranslationLeaderboard = ({
   monthData,
   quarterData,
   allTimeData,
-}) => {
+}: TranslationLeaderboardProps) => {
   const tableBoxShadow = useColorModeValue("tableBox.light", "tableBox.dark")
   const tableItemBoxShadow = useColorModeValue(
     "tableItemBox.light",
     "tableItemBox.dark"
   )
   const leaderboardData = {
-    monthData: reverse(sortBy(monthData.data, ({ user }) => user.totalCosts)),
+    monthData: reverse(sortBy(monthData, ({ user }) => user.totalCosts)),
     quarterData: reverse(
-      sortBy(quarterData.data, ({ user }) => user.totalCosts)
+      sortBy(quarterData, ({ user }) => user.totalCosts)
     ),
     allTimeData: reverse(
-      sortBy(allTimeData.data, ({ user }) => user.totalCosts)
+      sortBy(allTimeData, ({ user }) => user.totalCosts)
     ),
   }
   const [filterAmount, updateFilterAmount] = useState(10)
@@ -187,9 +190,8 @@ const TranslationLeaderboard: React.FC<IProps> = ({
               item.user.username !== "Norwegian_Sandberg" &&
               item.user.username !== "Swedish_Sandberg"
           )
-          .filter((item, idx) => idx < filterAmount)
-          .map((item, idx) => {
-            const { user, languages } = item
+          .filter((_, idx) => idx < filterAmount)
+          .map(({ user, languages }, idx) => {
             const sortedLanguages = reverse(
               sortBy(languages, ({ language }) => language.totalCosts)
             )
