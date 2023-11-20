@@ -29,8 +29,6 @@
     "./src/data", // TODO: move to /public?
     // TODO: Remove these exclusions as we migrate the pages & templates that use these components
     "./src/components/Alert/Alert.stories.tsx",
-    "./src/components/Avatar/Avatar.stories.tsx",
-    "./src/components/Avatar/index.tsx",
     "./src/components/BannerGrid/index.tsx",
     "./src/components/BannerNotification/BannerNotification.stories.tsx",
     "./src/components/Banners/DismissableBanner.tsx",
