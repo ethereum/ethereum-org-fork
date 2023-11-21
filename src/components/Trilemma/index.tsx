@@ -1,4 +1,3 @@
-import React from "react"
 import {
   Drawer,
   DrawerCloseButton,
@@ -8,18 +7,19 @@ import {
   Hide,
   useToken,
 } from "@chakra-ui/react"
+import { useTranslation } from "react-i18next"
 
-import Card from "../Card"
-import OldHeading from "../OldHeading"
-import Text from "../OldText"
-import Translation from "../Translation"
+import Card from "@/components/Card"
+import OldHeading from "@/components/OldHeading"
+import Text from "@/components/OldText"
+import {
+  type TriangleSVGProps,
+  TriangleSVG,
+} from "@/components/Trilemma/Triangle"
+import { useTrilemma } from "@/components/Trilemma/useTrilemma"
 
-import { IProps as TriangleSVGProps,TriangleSVG } from "./Triangle"
-import { useTrilemma } from "./useTrilemma"
-
-export interface IProps {}
-
-const Trilemma: React.FC<IProps> = () => {
+const Trilemma = () => {
+  const { t } = useTranslation("page-roadmap-vision")
   const {
     trilemmaChecks,
     mobileModalOpen,
@@ -53,19 +53,13 @@ const Trilemma: React.FC<IProps> = () => {
         }}
       >
         <OldHeading fontSize="2rem" mt={0}>
-          <Translation id="page-roadmap-vision-trilemma-h2" />
+          {t("page-roadmap-vision-trilemma-h2")}
         </OldHeading>
-        <Text>
-          <Translation id="page-roadmap-vision-trilemma-p" />
-        </Text>
-        <Text>
-          <Translation id="page-roadmap-vision-trilemma-p-1" />
-        </Text>
-        <Text>
-          <Translation id="page-roadmap-vision-trilemma-p-2" />
-        </Text>
+        <Text>{t("page-roadmap-vision-trilemma-p")}</Text>
+        <Text>{t("page-roadmap-vision-trilemma-p-1")}</Text>
+        <Text>{t("page-roadmap-vision-trilemma-p-2")}</Text>
         <Text fontWeight={600} hideFrom={lgBp}>
-          <Translation id="page-roadmap-vision-trilemma-modal-tip" />:
+          {t("page-roadmap-vision-trilemma-modal-tip")}:
         </Text>
         <Card {...cardDetail} mt={8} minH="300px" hideBelow={lgBp} />
       </Flex>

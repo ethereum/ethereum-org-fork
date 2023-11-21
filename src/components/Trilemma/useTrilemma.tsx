@@ -1,7 +1,7 @@
-import React, { useState } from "react"
+import { useState } from "react"
+import { useTranslation } from "react-i18next"
 
-import { IProps as CardProps } from "../Card"
-import Translation from "../Translation"
+import { IProps as CardProps } from "@/components/Card"
 
 /**
  * The `selection` param accepted values for the click handler
@@ -13,6 +13,7 @@ export type HandleClickParam =
   | "isScalableAndSecure"
 
 export const useTrilemma = () => {
+  const { t } = useTranslation("page-roadmap-vision")
   const [state, setState] = useState({
     isDecentralizedAndSecure: false,
     isDecentralizedAndScalable: false,
@@ -31,40 +32,18 @@ export const useTrilemma = () => {
   const isSecure = state.isScalableAndSecure || state.isDecentralizedAndSecure
   const isEthereum = isDecentralized && isScalable && isSecure
 
-  const handleClick = (selection: HandleClickParam) => {
-    if (selection === "isEthereum") {
-      return setTrilemmaState({
-        isDecentralizedAndSecure: true,
-        isDecentralizedAndScalable: true,
-        isScalableAndSecure: true,
-        mobileModalOpen: true,
-      })
-    }
-    if (selection === "isDecentralizedAndSecure") {
-      return setTrilemmaState({
-        isDecentralizedAndSecure: true,
-        isDecentralizedAndScalable: false,
-        isScalableAndSecure: false,
-        mobileModalOpen: true,
-      })
-    }
-
-    if (selection === "isDecentralizedAndScalable") {
-      return setTrilemmaState({
-        isDecentralizedAndSecure: false,
-        isDecentralizedAndScalable: true,
-        isScalableAndSecure: false,
-        mobileModalOpen: true,
-      })
-    }
-    if (selection === "isScalableAndSecure") {
-      return setTrilemmaState({
-        isDecentralizedAndSecure: false,
-        isDecentralizedAndScalable: false,
-        isScalableAndSecure: true,
-        mobileModalOpen: true,
-      })
-    }
+  const handleClick = (selection: HandleClickParam): void => {
+    setTrilemmaState({
+      isDecentralizedAndSecure:
+        selection === "isEthereum" ||
+        selection === "isDecentralizedAndScalable",
+      isDecentralizedAndScalable:
+        selection === "isEthereum" ||
+        selection === "isDecentralizedAndScalable",
+      isScalableAndSecure:
+        selection === "isEthereum" || selection === "isScalableAndSecure",
+      mobileModalOpen: true,
+    })
   }
 
   const handleModalClose = () => {
@@ -73,20 +52,20 @@ export const useTrilemma = () => {
     })
   }
 
-  let cardTitle = <Translation id="page-roadmap-vision-trilemma-title-1" />
-  let cardText = <Translation id="page-roadmap-vision-trilemma-press-button" />
+  let cardTitle = t("page-roadmap-vision-trilemma-title-1")
+  let cardText = t("page-roadmap-vision-trilemma-press-button")
   if (isEthereum) {
-    cardTitle = <Translation id="page-roadmap-vision-trilemma-title-2" />
-    cardText = <Translation id="page-roadmap-vision-trilemma-cardtext-1" />
+    cardTitle = t("page-roadmap-vision-trilemma-title-2")
+    cardText = t("page-roadmap-vision-trilemma-cardtext-1")
   } else if (state.isDecentralizedAndSecure) {
-    cardTitle = <Translation id="page-roadmap-vision-trilemma-title-3" />
-    cardText = <Translation id="page-roadmap-vision-trilemma-cardtext-2" />
+    cardTitle = t("page-roadmap-vision-trilemma-title-3")
+    cardText = t("page-roadmap-vision-trilemma-cardtext-2")
   } else if (state.isDecentralizedAndScalable) {
-    cardTitle = <Translation id="page-roadmap-vision-trilemma-title-4" />
-    cardText = <Translation id="page-roadmap-vision-trilemma-cardtext-3" />
+    cardTitle = t("page-roadmap-vision-trilemma-title-4")
+    cardText = t("page-roadmap-vision-trilemma-cardtext-3")
   } else if (state.isScalableAndSecure) {
-    cardTitle = <Translation id="page-roadmap-vision-trilemma-title-5" />
-    cardText = <Translation id="page-roadmap-vision-trilemma-cardtext-4" />
+    cardTitle = t("page-roadmap-vision-trilemma-title-5")
+    cardText = t("page-roadmap-vision-trilemma-cardtext-4")
   }
 
   return {

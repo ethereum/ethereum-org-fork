@@ -1,10 +1,72 @@
-import { ReactNode } from "react"
 import { useTranslation } from "next-i18next"
-import { chakra, HTMLChakraProps } from "@chakra-ui/react"
+import { chakra, type HTMLChakraProps } from "@chakra-ui/react"
 
-import { HandleClickParam } from "./useTrilemma"
+import { HandleClickParam } from "@/components/Trilemma/useTrilemma"
+import type { ChildOnlyProp } from "@/lib/types"
 
-export interface IProps {
+type CircleSelectProps = ChildOnlyProp & {
+  onClick: () => void
+}
+
+const CircleSelect = ({ children, onClick }: CircleSelectProps) => (
+  <chakra.g
+    cursor="pointer"
+    sx={{
+      "circle:first-of-type": {
+        fill: "white",
+      },
+    }}
+    onClick={onClick}
+  >
+    {children}
+  </chakra.g>
+)
+
+const Path = () => (
+  <chakra.path
+    d="M111.183 479.532L566.904 181.217L598.824 787.211L111.183 479.532Z"
+    stroke="border"
+    strokeWidth="2"
+  />
+)
+
+type FillCircleProps = {
+  isEthereum?: boolean
+  isActive?: boolean
+} & HTMLChakraProps<"circle">
+
+const FillCircle = ({ isEthereum, isActive, ...props }: FillCircleProps) => (
+  <chakra.circle
+    fill={
+      (isActive && (isEthereum ? "primary300" : "primary.base")) ||
+      "background.base"
+    }
+    _hover={{
+      fill: isActive ? "primary.base" : "primary100",
+    }}
+    {...props}
+  />
+)
+
+type TextProps = HTMLChakraProps<"text"> & {
+  isActive?: boolean
+}
+
+const Text = ({ isActive, children, ...props }: TextProps) => (
+  <chakra.text
+    fill={isActive ? "primary400" : "text200"}
+    fontWeight={isActive ? 700 : 500}
+    opacity={isActive ? 1.0 : 0.6}
+    fontSize={{ base: "2rem", sm: "1.4rem" }}
+    textTransform="uppercase"
+    transform={{ base: "translate(-80px, 0px)", sm: "none" }}
+    {...props}
+  >
+    {children}
+  </chakra.text>
+)
+
+export type TriangleSVGProps = {
   handleClick: (selection: HandleClickParam) => void
   isDecentralizedAndSecure: boolean
   isScalableAndSecure: boolean
@@ -15,7 +77,7 @@ export interface IProps {
   isScalable: boolean
 }
 
-export const TriangleSVG: React.FC<IProps> = ({
+export const TriangleSVG = ({
   handleClick,
   isDecentralizedAndSecure,
   isScalableAndSecure,
@@ -24,63 +86,8 @@ export const TriangleSVG: React.FC<IProps> = ({
   isDecentralized,
   isSecure,
   isScalable,
-}) => {
+}: TriangleSVGProps) => {
   const { t } = useTranslation("page-roadmap-vision")
-
-  const Path = () => (
-    <chakra.path
-      d="M111.183 479.532L566.904 181.217L598.824 787.211L111.183 479.532Z"
-      stroke="border"
-      strokeWidth="2"
-    />
-  )
-
-  const CircleSelect = ({ children, onClick }) => (
-    <chakra.g
-      cursor="pointer"
-      sx={{
-        "circle:first-of-type": {
-          fill: "white",
-        },
-      }}
-      onClick={onClick}
-    >
-      {children}
-    </chakra.g>
-  )
-
-  const FillCircle = ({ isEthereum = false, isActive, ...rest }) => {
-    return (
-      <chakra.circle
-        fill={
-          (isActive && (isEthereum ? "primary300" : "primary.base")) ||
-          "background.base"
-        }
-        _hover={{
-          fill: isActive ? "primary.base" : "primary100",
-        }}
-        {...rest}
-      />
-    )
-  }
-
-  const Text = ({
-    isActive,
-    children,
-    ...rest
-  }: { isActive: boolean; children: ReactNode } & HTMLChakraProps<"text">) => (
-    <chakra.text
-      fill={isActive ? "primary400" : "text200"}
-      fontWeight={isActive ? 700 : 500}
-      opacity={isActive ? 1.0 : 0.6}
-      fontSize={{ base: "2rem", sm: "1.4rem" }}
-      textTransform="uppercase"
-      transform={{ base: "translate(-80px, 0px)", sm: "none" }}
-      {...rest}
-    >
-      {children}
-    </chakra.text>
-  )
 
   const commonCircleStyles = {
     stroke: "black",
