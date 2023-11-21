@@ -28,9 +28,6 @@
     "./src/intl",
     "./src/data", // TODO: move to /public?
     // TODO: Remove these exclusions as we migrate the pages & templates that use these components
-    "./src/components/Banners/Implementations/WritersCohortBanner.tsx",
-    "./src/components/Banners/PostMergeBanner.tsx",
-    "./src/components/Banners/TranslatathonBanner.tsx",
     "./src/components/BaseStories/Checkbox.stories.tsx",
     "./src/components/BaseStories/Heading.stories.tsx",
     "./src/components/BaseStories/Radio.stories.tsx",

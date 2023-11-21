@@ -1,27 +1,22 @@
-import React from "react"
 import { Text } from "@chakra-ui/react"
+
+import BannerNotification from "@/components/BannerNotification"
+import Translation from "@/components/Translation"
 
 import type { TranslationKey } from "@/lib/types"
 
-import BannerNotification from "../BannerNotification"
-import Translation from "../Translation"
-
-export interface IProps {
+type PostMergeBannerProps = {
   translationString: TranslationKey
 }
 
-const PostMergeBanner: React.FC<IProps> = ({ translationString }) => (
+const PostMergeBanner = ({ translationString }: PostMergeBannerProps) => (
   <BannerNotification
     shouldShow
-    zIndex={1}
+    zIndex={1} // TODO: Update to use Chakra token
     textAlign="center"
-    sx={{
-      a: {
-        "text-decoration": "underline",
-      },
-    }}
+    sx={{ a: { textDecoration: "underline" } }}
   >
-    <Text maxW="100ch" p={0}>
+    <Text maxW="100ch" p="0">
       <Translation id={translationString} />
     </Text>
   </BannerNotification>
