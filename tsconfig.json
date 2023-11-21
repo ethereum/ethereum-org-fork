@@ -33,7 +33,6 @@
     "./src/components/BaseStories/Radio.stories.tsx",
     "./src/components/BaseStories/Switch.stories.tsx",
     "./src/components/BaseStories/Text.stories.tsx",
-    "./src/components/BoxGrid.tsx",
     "./src/components/Breadcrumbs/index.tsx",
     "./src/components/Breadcrumbs/Breadcrumbs.stories.tsx",
     "./src/components/BugBountyCards.tsx",

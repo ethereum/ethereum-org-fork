@@ -1,22 +1,20 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { Box, Flex, GridItem, SimpleGrid } from "@chakra-ui/react"
 
-import { MatomoEventOptions, trackCustomEvent } from "../utils/matomo"
+import Emoji from "@/components/Emoji"
+import OldHeading from "@/components/OldHeading"
+import Text from "@/components/OldText"
 
-import Emoji from "./Emoji"
-import OldHeading from "./OldHeading"
-import Text from "./OldText"
+import { type MatomoEventOptions, trackCustomEvent } from "@/lib/utils/matomo"
 
-export interface IBoxItem {
+type BoxItem = {
   emoji: string
   title: string
   description: string
   matomo: MatomoEventOptions
 }
 
-export interface IProps {
-  items: Array<IBoxItem>
-}
+type BoxGridProps = { items: BoxItem[] }
 
 // Represent string as 32-bit integer
 const hashCode = (stringPhrase: string): number => {
@@ -38,13 +36,13 @@ const colors = [
   "warning",
   "gridPink",
   "gridPurple",
-]
+] as const
 
-const BoxGrid: React.FC<IProps> = ({ items }) => {
+const BoxGrid = ({ items }: BoxGridProps) => {
   const [indexOpen, setOpenIndex] = useState(0)
 
   return (
-    <SimpleGrid columns={{ base: 1, lg: 4 }} my={16} borderRadius="sm">
+    <SimpleGrid columns={{ base: 1, lg: 4 }} my="16" borderRadius="sm">
       {items.map((item, idx: number) => {
         let columnNumber = idx + 1
         if (columnNumber > 4) {
@@ -72,7 +70,7 @@ const BoxGrid: React.FC<IProps> = ({ items }) => {
             justify="space-between"
             border="1px solid"
             borderColor="text"
-            p={6}
+            p="6"
             _hover={{
               bg: isOpen ? color : "ednBackground",
               transition: "transform 0.5s",
@@ -90,11 +88,11 @@ const BoxGrid: React.FC<IProps> = ({ items }) => {
             key={idx}
           >
             <Emoji
-              m={2}
+              m="2"
               text={item.emoji}
               fontSize="8xl"
               {...(isOpen
-                ? { mb: 8 }
+                ? { mb: "8" }
                 : {
                     alignSelf: "center",
                     _hover: {
@@ -108,7 +106,7 @@ const BoxGrid: React.FC<IProps> = ({ items }) => {
                 as="h3"
                 fontSize="2.5rem"
                 fontWeight="normal"
-                mt={0}
+                mt="0"
                 lineHeight={1.4}
               >
                 {item.title}
