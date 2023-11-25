@@ -2,6 +2,7 @@ import type { ReactElement, ReactNode } from "react"
 import type { NextPage } from "next"
 import type { AppProps } from "next/app"
 
+import type { CallToActionProps } from "@/components/Hero/CallToAction"
 import type {
   Author,
   DocsFrontmatter,
@@ -12,7 +13,7 @@ import type {
   UpgradeFrontmatter,
   UseCasesFrontmatter,
 } from "@/lib/interfaces"
-import { Options } from "mdast-util-toc"
+import type { Options } from "mdast-util-toc"
 
 export type ChildOnlyProp = { children?: ReactNode }
 
@@ -172,7 +173,6 @@ export type IRemarkTocOptions = {
   callback: (toc: TocNodeType) => void
 }
 
-
 type CrowdinUser = {
   totalCosts: number
   username: string
@@ -190,4 +190,12 @@ type LanguageCostSummary = {
 export type CrowdinData = {
   user: CrowdinUser
   languages: LanguageCostSummary[]
+}
+
+export type CommonHeroProps = {
+  heroImgSrc: string
+  header: string
+  title: string
+  description: string
+  buttons?: [CallToActionProps, CallToActionProps?]
 }

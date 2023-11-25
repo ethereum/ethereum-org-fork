@@ -64,7 +64,6 @@
     "./src/components/Footer.tsx",
     "./src/components/GhostCard.tsx",
     "./src/components/GitStars.tsx",
-    "./src/components/Hero/*",
     "./src/components/HorizontalCard.tsx",
     "./src/components/ImageCard.tsx",
     "./src/components/Input/Input.stories.tsx",
