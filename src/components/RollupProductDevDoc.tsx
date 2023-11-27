@@ -1,16 +1,12 @@
-// Libraries
 import React from "react"
 import { Box, Flex, Heading, ListItem, UnorderedList } from "@chakra-ui/react"
 
-// Components
-import InlineLink from "./Link"
-import Translation from "./Translation"
-import Text from "./OldText"
-
-// Data
 import _rollups from "../data/layer-2/layer-2.json"
+import type { TranslationKey } from "@/lib/types"
 
-import { TranslationKey } from "../utils/translations"
+import InlineLink from "./Link"
+import Text from "./OldText"
+import Translation from "./Translation"
 
 type RollupType = "optimistic" | "zk"
 
@@ -59,7 +55,7 @@ const RollupProductDevDoc: React.FC<IProps> = ({ rollupType }) => {
                   </Heading>
                   {noteKey.length > 0 && (
                     <Text>
-                      * <Translation id={noteKey} />
+                      * <Translation id={`page-layer-2:${noteKey}`} />
                     </Text>
                   )}
                   <UnorderedList>

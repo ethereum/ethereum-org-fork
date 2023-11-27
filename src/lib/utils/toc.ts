@@ -1,45 +1,28 @@
 import { ListProps } from "@chakra-ui/react"
-import type { ToCItem } from "@/lib/interfaces"
+import type { TocNodeType, ToCItem } from "@/lib/types"
 
 // RegEx patterns
-export const mdHeadingRegEx = /^(#+\s+)(.+)$/
-export const customIdRegEx = /^.+(\s*\{#([^\}]+?)\}\s*)$/
-export const emojiRegEx = /<Emoji [^/]+\/>/g
-export const escapeSlashRegEx = /\\(?=[+*?^$\\.[\]{}()|/#])/g
-export const multilineHtmlCommentsRegEx = /<!--[^]*-->/gm
+const customIdRegEx = /^.+(\s*\{#([^\}]+?)\}\s*)$/
+const emojiRegEx = /<Emoji [^/]+\/>/g
+const h1RegEx = /mdx\("h1"/g
 
 /**
  * Creates a slug from a string (Hello world => hello-world)
  * @param s Any string
  * @returns Lowercased string with spaces replaced with hyphens (kebab-casing)
  */
-export const slugify = (s: string): string =>
+const slugify = (s: string): string =>
   encodeURIComponent(String(s).trim().toLowerCase().replace(/\s+/g, "-"))
 
 /**
- * Parse a heading ID from a Markdown heading string. If the heading contains a custom ID,
- * it will be used as the ID, otherwise the heading will be slugified
+ * Parse a heading ID from a heading string. If the heading contains a custom ID,
+ * it will be used as the ID, otherwise the heading will be slugified and used.
  * @param heading Heading string without leading #s that may contain a {#custom-id}
  * @returns Heading ID string
  */
 export const parseHeadingId = (heading: string): string => {
   const match = customIdRegEx.exec(heading)
   return match ? match[2].toLowerCase() : slugify(heading)
-}
-
-/**
- * Parse out the title to be displayed in the Table of Contents by removing any custom
- * ID and Twemoji components, as well as any backslashes used to escape Markdown characters
- * @param title Heading string without leading #s that may contain Emoji's or a {#custom-id}
- * @returns Title string with custom ID and Emoji's removed
- */
-export const parseToCTitle = (title: string): string => {
-  const match = customIdRegEx.exec(title)
-  const trimmedTitle = match ? title.replace(match[1], "").trim() : title
-  const sanitizedTitle = trimmedTitle
-    .replaceAll(emojiRegEx, "")
-    .replaceAll(escapeSlashRegEx, "")
-  return sanitizedTitle
 }
 
 /**
@@ -71,63 +54,58 @@ export const outerListProps: ListProps = {
 }
 
 /**
- * Removes content between HTML comment tags
- * @param content Full content as a string
- * @returns Full content as a string with comments removed
+ * Removes any custom ID and Emoji components from a heading string
+ * @param title Heading string, not yet trimmed
+ * @returns Trimmed heading string
  */
-export const removeMarkdownComments = (content: string): string =>
-  content.replaceAll(multilineHtmlCommentsRegEx, "")
+export const trimmedTitle = (title: string): string => {
+  const match = customIdRegEx.exec(title)
+  const trimmedTitle = match ? title.replace(match[1], "").trim() : title
 
-/**
- * Get title and URL from a Markdown heading string. If the heading contains a custom ID,
- * it will be used as the URL, otherwise the title will be slugified
- * @param heading Markdown text string starting with #s, optionally ending with {#id}
- * Example: "### Hello world {#hello-world}" or "## Hello world"
- * @returns Object of type `Item` containing `title` and `url` properties parsed from heading
- */
-const parseHeadingToItem = (heading: string): ToCItem => {
-  const match = heading.match(mdHeadingRegEx)
-  if (!match) throw new Error(`Invalid heading: ${heading}`)
-  const title = parseToCTitle(match[2])
-  const url = `#${parseHeadingId(heading)}`
-  return { title, url }
+  // Removes Twemoji components from title
+  const emojiMatch = emojiRegEx.exec(trimmedTitle)
+  return emojiMatch ? trimmedTitle.replaceAll(emojiRegEx, "") : trimmedTitle
 }
 
 /**
- * Recursive function used to generate nested array of `Items`, nesting according to heading depth
- * @param headings Array of Markdown headings (strings starting with #s)
- * @param h Heading level being parsed (2 for h2, 3 for h3, etc.), starting with 2
- * @returns Array of `Item` objects parsed from the headings
+ * Recursive function to sanitize original `title` property, and extract appropriate heading id
+ * title comes in form 'A note on names {#a-note-on-names}'
+ * url is in form '#a-note-on-names'... if no {#name} exists, call slugify(title) for url
+ * @param item: Of ToCItem type, { title: string, url: string, items?: ToCItem[] }
+ * @returns Updated ToCItem with cleaned up title, url, and any subitems
  */
-const addHeadingsAsItems = (headings: Array<string>, h = 2): Array<ToCItem> => {
-  const items: Array<ToCItem> = []
-  const depths: number[] = headings.map(
-    (heading) => heading.match(/^#+/)?.[0].length ?? 0
-  )
-  depths.forEach((depth, i): void => {
-    if (depth !== h) return
-    const headingItem = parseHeadingToItem(headings[i])
-    if (depths[i + 1] > h) {
-      const start = i + 1
-      const rest = depths.slice(start)
-      const end = start + rest.indexOf(h)
-      const subHeadings = headings.slice(start, end)
-      headingItem.items = addHeadingsAsItems(subHeadings, h + 1)
-    }
-    items.push(headingItem)
-  })
-  return items
+const parseItem = (item: ToCItem): ToCItem => {
+  const { title, items: subItems } = item
+  const parsedItem = {
+    title: trimmedTitle(title),
+    url: `#${parseHeadingId(title)}`,
+  }
+  if (!subItems) return parsedItem
+  return {
+    ...parsedItem,
+    items: subItems.map(parseItem),
+  }
 }
 
 /**
- * Splits the content by lines and filters out lines that don't start with #s
- * Calls `addHeadingAsItem` with array of Markdown headers to generate list of `Item` objects
- * @param content Markdown content as a string (all lines)
- * @returns List of `Item` objects parsed from the content, nested according to heading depth
+ * Remaps the ToC generated by remarkInferToc plugin (@/lib/rehype/remarkInferToc.ts)
+ * Note: each file should only have one h1, and it is not included in the ToC
+ * @param tocNodeItems Array of TocNodeType objects generated by remarkInferToc
+ * @returns Modified array of ToCItem objects
  */
-export const generateTableOfContents = (content: string): Array<ToCItem> => {
-  const contentWithoutComments = removeMarkdownComments(content)
-  const lines = contentWithoutComments.split("\n")
-  const headings = lines.filter((line) => line.startsWith("#"))
-  return addHeadingsAsItems(headings)
+
+export const remapTableOfContents = (
+  tocNodeItems: TocNodeType[],
+  compiledSource: string
+): ToCItem[] => {
+  const h1Count = Array.from(compiledSource.matchAll(h1RegEx)).length
+  if (h1Count > 1 && "url" in tocNodeItems[0]) {
+    console.warn("More than one h1 found in file at id:", tocNodeItems[0].url)
+  }
+  const items = (
+    h1Count > 0 && "items" in tocNodeItems[0]
+      ? tocNodeItems[0].items
+      : tocNodeItems
+  ) as ToCItem[]
+  return items.map(parseItem)
 }

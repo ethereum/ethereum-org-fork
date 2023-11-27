@@ -1,47 +1,42 @@
+import { useRouter } from "next/router"
+import { useTranslation } from "next-i18next"
+import { MdExpandMore } from "react-icons/md"
 import {
   Box,
   Flex,
+  type FlexProps,
   Icon,
   List,
   ListItem,
   Show,
   Text,
-  type FlexProps,
-  type HeadingProps,
   useToken,
 } from "@chakra-ui/react"
-import { MdExpandMore } from "react-icons/md"
-import { useRouter } from "next/router"
 
-import { BaseLink } from "@/components/Link"
+import type { ChildOnlyProp, Lang } from "@/lib/types"
+import type { MdPageContent, UpgradeFrontmatter } from "@/lib/interfaces"
+
 import BeaconChainActions from "@/components/BeaconChainActions"
-import { Image } from "@/components/Image"
 import Breadcrumbs from "@/components/Breadcrumbs"
-import FeedbackCard from "@/components/FeedbackCard"
-import MergeArticleList from "@/components/MergeArticleList"
-import MergeInfographic from "@/components/MergeInfographic"
-import OldHeading from "@/components/OldHeading"
-import ShardChainsList from "@/components/ShardChainsList"
 import type { List as ButtonDropdownList } from "@/components/ButtonDropdown"
-import UpgradeStatus from "@/components/UpgradeStatus"
-import UpgradeTableOfContents from "@/components/UpgradeTableOfContents"
+import FeedbackCard from "@/components/FeedbackCard"
+import { Image } from "@/components/Image"
+import { BaseLink } from "@/components/Link"
 import {
+  ContentContainer,
   MobileButton,
   MobileButtonDropdown,
   Page as MdPage,
-  StyledButtonDropdown,
-  InfoColumn,
-  ContentContainer,
 } from "@/components/MdComponents"
-// import Translation from "@/components/Translation"
-// TODO: Re-enable PageMetadata after i18n is implemented:
-// import PageMetadata from "@/components/PageMetadata"
+import MergeArticleList from "@/components/MergeArticleList"
+import MergeInfographic from "@/components/MergeInfographic"
+import OldHeading from "@/components/OldHeading"
+import UpgradeStatus from "@/components/UpgradeStatus"
+import LeftNavBar from "@/components/LeftNavBar"
 
 import { getSummaryPoints } from "@/lib/utils/getSummaryPoints"
-import { isLangRightToLeft } from "@/lib/utils/translations"
-import type { ChildOnlyProp, Lang /* Context */ } from "@/lib/types"
-import type { MdPageContent, UpgradeFrontmatter } from "@/lib/interfaces"
 import { getLocaleTimestamp } from "@/lib/utils/time"
+import { isLangRightToLeft } from "@/lib/utils/translations"
 
 const Page = (props: FlexProps) => <MdPage sx={{}} {...props} />
 
@@ -52,14 +47,6 @@ const Title = (props: ChildOnlyProp) => (
     fontWeight="bold"
     lineHeight={1.4}
     mt={0}
-    {...props}
-  />
-)
-
-const InfoTitle = (props: HeadingProps) => (
-  <Title
-    fontSize={{ base: "2.5rem", lg: "5xl" }}
-    textAlign={{ base: "left", lg: "right" }}
     {...props}
   />
 )
@@ -138,12 +125,13 @@ const LastUpdated = (props: ChildOnlyProp) => (
 export const upgradeComponents = {
   MergeArticleList,
   MergeInfographic,
-  ShardChainsList,
   UpgradeStatus,
   BeaconChainActions,
 }
 
-interface IProps extends ChildOnlyProp, MdPageContent {
+interface IProps
+  extends ChildOnlyProp,
+    Pick<MdPageContent, "slug" | "tocItems" | "lastUpdatedDate"> {
   frontmatter: UpgradeFrontmatter
 }
 export const UpgradeLayout: React.FC<IProps> = ({
@@ -151,10 +139,9 @@ export const UpgradeLayout: React.FC<IProps> = ({
   frontmatter,
   slug,
   tocItems,
-  lastUpdatedDate
+  lastUpdatedDate,
 }) => {
-  // TODO: Re-enabled after i18n is implemented
-  // const { t } = useTranslation()
+  const { t } = useTranslation("page-upgrades")
   const { locale } = useRouter()
 
   const isRightToLeft = isLangRightToLeft(frontmatter.lang as Lang)
@@ -162,11 +149,11 @@ export const UpgradeLayout: React.FC<IProps> = ({
   const summaryPoints = getSummaryPoints(frontmatter)
 
   const dropdownLinks: ButtonDropdownList = {
-    text: "Guide to Ethereum upgrades", // t("page-upgrades-upgrades-guide"),
-    ariaLabel: "Ethereum upgrades menu", // t("page-upgrades-upgrades-aria-label"),
+    text: t("page-upgrades-upgrades-guide"),
+    ariaLabel: t("page-upgrades-upgrades-aria-label"),
     items: [
       {
-        text: "The Beacon Chain", // t("page-upgrades-upgrades-beacon-chain"),
+        text: t("page-upgrades-upgrades-beacon-chain"),
         to: "/roadmap/beacon-chain/",
         matomo: {
           eventCategory: "upgrade menu",
@@ -175,7 +162,7 @@ export const UpgradeLayout: React.FC<IProps> = ({
         },
       },
       {
-        text: "The Merge", // t("page-upgrades-upgrades-docking"),
+        text: t("page-upgrades-upgrades-docking"),
         to: "/roadmap/merge/",
         matomo: {
           eventCategory: "upgrade menu",
@@ -202,9 +189,7 @@ export const UpgradeLayout: React.FC<IProps> = ({
             </List>
           </Box>
           <LastUpdated>
-            {/* TODO: Re-enable after i18n implemented */}
-            {/* <Translation id="page-last-updated" />:{" "} */}
-            Page last updated:{" "}
+            {t("common:page-last-updated")}:{" "}
             {getLocaleTimestamp(locale as Lang, lastUpdatedDate!)}
           </LastUpdated>
         </TitleCard>
@@ -230,25 +215,13 @@ export const UpgradeLayout: React.FC<IProps> = ({
         </MoreContent>
       </Show>
       <Page dir={isRightToLeft ? "rtl" : "ltr"}>
-        {/* <PageMetadata
-          title={frontmatter.title}
-          description={frontmatter.description}
-        /> */}
-        <Show above={lgBreakpoint}>
-          <InfoColumn>
-            <StyledButtonDropdown list={dropdownLinks} />
-            <Show above={lgBreakpoint}>
-              <InfoTitle>{frontmatter.title}</InfoTitle>
-            </Show>
-
-            {tocItems && (
-              <UpgradeTableOfContents
-                items={tocItems}
-                maxDepth={frontmatter.sidebarDepth || 2}
-              />
-            )}
-          </InfoColumn>
-        </Show>
+        {/* TODO: Switch to `above="lg"` after completion of Chakra Migration */}
+        <LeftNavBar
+          hideBelow={lgBreakpoint}
+          dropdownLinks={dropdownLinks}
+          tocItems={tocItems}
+          maxDepth={frontmatter.sidebarDepth!}
+        />
         <ContentContainer id="content">
           {children}
           <FeedbackCard />

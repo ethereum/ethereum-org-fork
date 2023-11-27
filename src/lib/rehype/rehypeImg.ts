@@ -1,8 +1,9 @@
 import path from "path"
-import { visit } from "unist-util-visit"
+
+import type { Root } from "hast"
 import sizeOf from "image-size"
 import type { Plugin } from "unified"
-import type { Root } from "hast"
+import { visit } from "unist-util-visit"
 
 import {
   checkIfImageIsTranslated,
@@ -65,7 +66,8 @@ const setImageSize: Plugin<[Options], Root> = (options) => {
           return
         }
 
-        const originalPath = path.join(srcPath, src)
+        // Replace slashes from windows paths with forward slashes
+        const originalPath = path.join(srcPath, src).replace(/\\/g, "/")
         const translatedImgPath = getTranslatedImgPath(originalPath, locale)
         const imageIsTranslated = checkIfImageIsTranslated(translatedImgPath)
 

@@ -1,4 +1,5 @@
-import type { Frontmatter, Lang, TranslationKey } from "./types"
+import type { Frontmatter, Lang, TranslationKey, ToCItem } from "@/lib/types"
+import { ReactNode } from "react"
 
 /**
  * Quiz data interfaces
@@ -44,13 +45,12 @@ export interface RawQuizzes {
   [key: string]: RawQuiz
 }
 
-/**
- * Table of Contents
- */
-export interface ToCItem {
-  title: string
-  url: string
-  items?: Array<ToCItem>
+export interface DeveloperDocsLink {
+  id: TranslationKey
+  to: string
+  path: string
+  description: TranslationKey
+  items: Array<DeveloperDocsLink>
 }
 
 /**
@@ -134,10 +134,11 @@ export interface TutorialFrontmatter extends SharedFrontmatter {
   address?: string
   postMergeBannerTranslation?: string
   hideEditButton?: boolean
+  showPostMergeBanner?: boolean
 }
 
 export interface Root {
-  children: JSX.Element
+  children: ReactNode
   contentIsOutdated: boolean
   contentNotTranslated: boolean
   lastDeployDate: string
@@ -150,4 +151,15 @@ export interface MdPageContent {
   tocItems: Array<ToCItem>
   lastUpdatedDate?: string
   contentNotTranslated: boolean
+}
+
+// GitHub contributors
+export interface Author {
+  name: string
+  email: string
+  avatarUrl: string
+  user: {
+    login: string
+    url: string
+  }
 }

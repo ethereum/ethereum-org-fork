@@ -35,29 +35,29 @@ Perché la simulazione dinamica è utile? Ci consente di scrivere unit test anzi
 Prima di iniziare dobbiamo preparare un semplice progetto node.js:
 
 ```bash
-$ mkdir dynamic-mocking
-$ cd dynamic-mocking
-$ mkdir contracts src
+mkdir dynamic-mocking
+cd dynamic-mocking
+mkdir contracts src
 
-$ yarn init
-# oppure, se usi npm
-$ npm init
+yarn init
+# or if you're using npm
+npm init
 ```
 
 Iniziamo aggiungendo dipendenze typescript e di test: mocha e chai:
 
 ```bash
-$ yarn add --dev @types/chai @types/mocha chai mocha ts-node typescript
-# oppure, se usi npm
-$ npm install @types/chai @types/mocha chai mocha ts-node typescript --save-dev
+yarn add --dev @types/chai @types/mocha chai mocha ts-node typescript
+# or if you're using npm
+npm install @types/chai @types/mocha chai mocha ts-node typescript --save-dev
 ```
 
 Ora aggiungiamo `Waffle` e `ethers`:
 
 ```bash
-$ yarn add --dev ethereum-waffle ethers
-# oppure, se usi npm
-$ npm install ethereum-waffle ethers --save-dev
+yarn add --dev ethereum-waffle ethers
+# or if you're using npm
+npm install ethereum-waffle ethers --save-dev
 ```
 
 La struttura del progetto sarà ora simile a:
@@ -113,7 +113,7 @@ Poiché vogliamo usare la simulazione dinamica, non ci serve tutto ERC20, quindi
 Ora siamo pronti a creare il contratto con Waffle:
 
 ```bash
-$ npx waffle
+npx waffle
 ```
 
 Facile, vero? Nella cartella `build/` sono comparsi due file corrispondenti al contratto e all'interfaccia. Li useremo dopo per i test.
@@ -223,7 +223,7 @@ Dividiamo il test in due parti:
 
 Siamo pronti a scatenare la bestia:
 
-![Un test superato](test-one.png)
+![Un test superato](./test-one.png)
 
 Quindi il test funziona, ma... si può ancora migliorare. La funzione `balanceOf()` restituirà sempre 99999. Possiamo migliorarla specificando un portafoglio per cui la funzione deve restituire qualcosa, proprio come un vero contratto:
 

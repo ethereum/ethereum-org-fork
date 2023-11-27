@@ -1,20 +1,22 @@
-import { Container } from "@chakra-ui/react"
-import { useRouter } from "next/router"
 import { join } from "path"
 
-import Nav from "@/components/Nav"
+import { useRouter } from "next/router"
+import { Container } from "@chakra-ui/react"
+
+import { Lang } from "@/lib/types"
+import { Root } from "@/lib/interfaces"
+
 import Footer from "@/components/Footer"
+import Nav from "@/components/Nav"
 import TranslationBanner from "@/components/TranslationBanner"
 import TranslationBannerLegal from "@/components/TranslationBannerLegal"
 
 import { isLangRightToLeft } from "@/lib/utils/translations"
 
-import { Lang } from "@/lib/types"
-import { Root } from "@/lib/interfaces"
-
 import { DEFAULT_LOCALE } from "@/lib/constants"
 
 import { lightTheme as oldTheme } from "../theme"
+import { toPosixPath } from "@/lib/utils/relativePath"
 
 export const RootLayout = ({
   children,
@@ -38,12 +40,11 @@ export const RootLayout = ({
       (contentNotTranslated && !isPageLanguageEnglish)) &&
     !isLegal
   const isPageRightToLeft = isLangRightToLeft(locale as Lang)
-  const originalPagePath = join(DEFAULT_LOCALE, asPath)
+  const originalPagePath = toPosixPath(join(DEFAULT_LOCALE, asPath))
 
   return (
     <Container mx="auto" maxW={oldTheme.variables.maxPageWidth}>
-      {/* TODO: get proper path value after setting i18n */}
-      <Nav path="" />
+      <Nav path={asPath} />
 
       <TranslationBanner
         shouldShow={shouldShowTranslationBanner}

@@ -1,14 +1,15 @@
 import { defineStyle, defineStyleConfig } from "@chakra-ui/react"
+
 import { headingDefaultTheme } from "./components.utils"
 
 const { sizes: defaultSizes } = headingDefaultTheme
 
 const lineHeightScale = {
   "4xl": "6xs",
-  "3xl": ["5xs", null, "6xs"],
-  "2xl": ["5xs", null, "4xs"],
-  xl: ["3xs", null, "2xs"],
-  lg: ["3xs", null, "2xs"],
+  "3xl": ["6xs", null, "5xs"],
+  "2xl": ["4xs", null, "5xs"],
+  xl: ["2xs", null, "4xs"],
+  lg: ["2xs", null, "3xs"],
   md: "xs",
   sm: "base",
   xs: "base",

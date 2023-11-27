@@ -1,22 +1,15 @@
-// Libraries
 import { useEffect, useState } from "react"
-import { Flex, Stack, Text } from "@chakra-ui/react"
 import { useRouter } from "next/router"
+import { useTranslation } from "next-i18next"
+import { Flex, Stack, Text } from "@chakra-ui/react"
 
-// Components
+import type { Lang } from "@/lib/types"
+
+import { getLocaleForNumberFormat } from "@/lib/utils/translations"
+
+import NetworkUpgradeSummaryData from "../../data/NetworkUpgradeSummaryData"
 import Emoji from "../Emoji"
 import InlineLink from "../Link"
-// TODO add Translation
-// import Translation from "../Translation"
-
-// Data
-import NetworkUpgradeSummaryData from "../../data/NetworkUpgradeSummaryData"
-
-// Utils
-// TODO
-// import { Lang } from "../../utils/languages"
-// TODO
-// import { getLocaleForNumberFormat } from "../../utils/translations"
 
 interface IProps {
   name: string
@@ -24,11 +17,9 @@ interface IProps {
 
 const NetworkUpgradeSummary: React.FC<IProps> = ({ name }) => {
   const [formattedUTC, setFormattedUTC] = useState("")
-
   const { locale } = useRouter()
-
-  // const localeForStatsBoxNumbers = getLocaleForNumberFormat(language as Lang)
-  const localeForStatsBoxNumbers = "en"
+  const localeForStatsBoxNumbers = getLocaleForNumberFormat(locale as Lang)
+  const { t } = useTranslation("page-history")
 
   const {
     dateTimeAsString,
@@ -56,18 +47,10 @@ const NetworkUpgradeSummary: React.FC<IProps> = ({ name }) => {
   })
 
   const blockTypeTranslation = (translationKey, explorerUrl, number) => {
-    // TODO: remove temporalGetValue after i18n is set up
-    const temporalGetValue = {
-      "page-history-block-number": "Block number",
-      "page-history-epoch-number": "Epoch number",
-      "page-history-slot-number": "Slot number",
-    }
-
     return (
       <Flex>
         <Emoji fontSize="sm" mr={2} text=":bricks:" />
-        {/* <Translation id={translationKey} /> */}
-        {temporalGetValue[translationKey]}:&nbsp;
+        {t(translationKey)}:{" "}
         <InlineLink to={`${explorerUrl}${number}`}>
           {new Intl.NumberFormat(localeForStatsBoxNumbers).format(number)}
         </InlineLink>
@@ -85,28 +68,26 @@ const NetworkUpgradeSummary: React.FC<IProps> = ({ name }) => {
       )}
       {blockNumber &&
         blockTypeTranslation(
-          "page-history-block-number",
+          "page-history:page-history-block-number",
           "https://etherscan.io/block/",
           blockNumber
         )}
       {epochNumber &&
         blockTypeTranslation(
-          "page-history-epoch-number",
+          "page-history:page-history-epoch-number",
           "https://beaconscan.com/epoch/",
           epochNumber
         )}
       {slotNumber &&
         blockTypeTranslation(
-          "page-history-slot-number",
+          "page-history:page-history-slot-number",
           "https://beaconscan.com/slot/",
           slotNumber
         )}
       {ethPriceInUSD && (
         <Flex>
           <Emoji fontSize="sm" mr={2} text=":money_bag:" />
-          {/* TODO: remove hardcoded text when Translation & i18n are set up */}
-          {/* <Translation id="page-history-eth-price" /> */}
-          ETH price: &nbsp;
+          {t("page-history:page-history-eth-price")}:{" "}
           {new Intl.NumberFormat(localeForStatsBoxNumbers, {
             style: "currency",
             currency: "USD",
@@ -117,9 +98,7 @@ const NetworkUpgradeSummary: React.FC<IProps> = ({ name }) => {
         <Flex>
           <Emoji fontSize="sm" mr={2} text=":desktop_computer:" />
           <InlineLink to={waybackLink}>
-            {/* TODO: remove hardcoded text when Translation & i18n are set up */}
-            {/* <Translation id="page-history-ethereum-org-wayback" /> */}
-            ethereum.org on waybackmachine
+            {t("page-history:page-history-ethereum-org-wayback")}
           </InlineLink>
         </Flex>
       )}
