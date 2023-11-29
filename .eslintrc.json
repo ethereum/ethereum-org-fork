@@ -37,6 +37,7 @@
         ]
       }
     ],
-    "simple-import-sort/exports": "error"
+    "simple-import-sort/exports": "error",
+    "react/no-unescaped-entities": "off"
   }
 }
