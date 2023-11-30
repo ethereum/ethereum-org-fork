@@ -1,5 +1,3 @@
-// TODO
-import React from "react"
 import { useRouter } from "next/router"
 import { useTranslation } from "next-i18next"
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa"
@@ -11,13 +9,11 @@ import {
   List,
   ListItem,
   SimpleGrid,
-  useToken,
 } from "@chakra-ui/react"
 
-import { Lang, TranslationKey } from "@/lib/types"
+import type { Lang, TranslationKey } from "@/lib/types"
 
 import { BaseLink } from "@/components/Link"
-import Translation from "@/components/Translation"
 
 import { getLocaleTimestamp } from "@/lib/utils/time"
 
@@ -41,26 +37,24 @@ const socialLinks = [
     color: "#7289da",
   },
 ]
-export interface LinkSection {
+type LinkSection = {
   title: TranslationKey
-  links: Array<{
+  links: {
     to: string
     text: TranslationKey
     isPartiallyActive?: boolean
-  }>
+  }[]
 }
 
-export interface IProps {
+type FooterProps = {
   lastDeployDate: string
 }
 
-const Footer: React.FC<IProps> = ({ lastDeployDate }) => {
+const Footer = ({ lastDeployDate }: FooterProps) => {
   const { locale } = useRouter()
   const { t } = useTranslation("common")
 
-  // TODO: check if `medBp` is being used or remove it
-  const [medBp] = useToken("breakpoints", ["md"])
-  const linkSections: Array<LinkSection> = [
+  const linkSections: LinkSection[] = [
     {
       title: t("use-ethereum"),
       links: [
@@ -291,7 +285,7 @@ const Footer: React.FC<IProps> = ({ lastDeployDate }) => {
   ]
 
   return (
-    <Box as="footer" p="1rem 2rem">
+    <Box as="footer" py="4" px="8">
       <Flex
         fontSize="sm"
         justify="space-between"
@@ -299,36 +293,34 @@ const Footer: React.FC<IProps> = ({ lastDeployDate }) => {
         flexWrap="wrap"
       >
         <Box color="text200">
-          <Translation id="website-last-updated" />:{" "}
-          {getLocaleTimestamp(locale as Lang, lastDeployDate!)}
+          {t("website-last-updated")}:{" "}
+          {getLocaleTimestamp(locale as Lang, lastDeployDate)}
         </Box>
-        <Box my={4}>
-          {socialLinks.map((link, idk) => {
-            return (
-              <BaseLink
-                key={idk}
-                to={link.to}
-                hideArrow
-                color="secondary"
-                aria-label={link.ariaLabel}
-              >
-                <Icon
-                  as={link.icon}
-                  _hover={{
-                    color: link.color,
-                    transition:
-                      "color 0.2s ease-in-out, transform 0.2s ease-in-out",
-                  }}
-                  fontSize="4xl"
-                  ms={4}
-                />
-              </BaseLink>
-            )
-          })}
+        <Box my="4">
+          {socialLinks.map(({ to, icon, color, ariaLabel }, idk) => (
+            <BaseLink
+              key={idk}
+              href={to}
+              hideArrow
+              color="secondary"
+              aria-label={ariaLabel}
+            >
+              <Icon
+                as={icon}
+                _hover={{
+                  color: color,
+                  transition:
+                    "color 0.2s ease-in-out, transform 0.2s ease-in-out",
+                }}
+                fontSize="4xl"
+                ms="4"
+              />
+            </BaseLink>
+          ))}
         </Box>
       </Flex>
       <SimpleGrid
-        gap={4}
+        gap="4"
         justifyContent="space-between"
         templateColumns={{
           base: "auto",
@@ -337,22 +329,22 @@ const Footer: React.FC<IProps> = ({ lastDeployDate }) => {
           xl: "repeat(6, auto)",
         }}
       >
-        {linkSections.map((section: LinkSection, idx) => (
-          <Box key={idx}>
+        {linkSections.map(({ title, links }: LinkSection) => (
+          <Box key={title}>
             <Heading as="h3" fontSize="sm" lineHeight="1.6" my="1.14em">
-              <Translation id={section.title} />
+              {t(title)}
             </Heading>
-            <List fontSize="sm" lineHeight="1.6" fontWeight="400" m={0}>
-              {section.links.map((link, linkIdx) => (
+            <List fontSize="sm" lineHeight="1.6" fontWeight="400" m="0">
+              {links.map(({ to, text }, linkIdx) => (
                 <ListItem key={linkIdx} mb={4}>
                   <BaseLink
-                    to={link.to}
+                    href={to}
                     isPartiallyActive={false}
                     textDecor="none"
                     color="text200"
                     fontWeight="normal"
                     _hover={{
-                      textDecor: "none",
+                      textDecoration: "none",
                       color: "primary.base",
                       _after: {
                         color: "primary.base",
@@ -367,7 +359,7 @@ const Footer: React.FC<IProps> = ({ lastDeployDate }) => {
                       },
                     }}
                   >
-                    {link.text}
+                    {text}
                   </BaseLink>
                 </ListItem>
               ))}

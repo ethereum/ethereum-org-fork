@@ -5,19 +5,20 @@ export type SectionKey =
   | "enterprise"
   | "community"
 
-export interface IItem {
+export type NavItem = {
   text: string
-  to?: string
-  items?: Array<IItem>
   isPartiallyActive?: boolean
-}
+} & (
+    | { to: string }
+    | { items: NavItem[] }
+  )
 
-export interface ISection {
+export type NavSection = {
   text: string
   ariaLabel: string
-  items: Array<IItem>
+  items: NavItem[]
 }
 
-export type ISections = {
-  [key in SectionKey]: ISection
+export type NavSections = {
+  [key in SectionKey]: NavSection
 }

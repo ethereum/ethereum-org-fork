@@ -1,24 +1,23 @@
-import React, { FC, useRef } from "react"
+import { useRef } from "react"
 import { useRouter } from "next/router"
 import { useTranslation } from "next-i18next"
 import { MdBrightness2, MdLanguage, MdWbSunny } from "react-icons/md"
 import { Box, Flex, HStack, Icon, useDisclosure } from "@chakra-ui/react"
 
-import { ButtonLink, IconButton } from "../Buttons"
-import { EthHomeIcon } from "../icons"
-import { BaseLink } from "../Link"
-import Search from "../Search"
+import { ButtonLink, IconButton } from "@/components/Buttons"
+import { EthHomeIcon } from "@/components/icons"
+import { BaseLink } from "@/components/Link"
+import Menu from "@/components/Nav/Menu"
+import MobileNavMenu from "@/components/Nav/Mobile"
+import { useNav } from "@/components/Nav/useNav"
+import Search from "@/components/Search"
 
-import Menu from "./Menu"
-import MobileNavMenu from "./Mobile"
-import { useNav } from "./useNav"
-
-export interface IProps {
+type NavProps = {
   path: string
 }
 
 // TODO display page title on mobile
-const Nav: FC<IProps> = ({ path }) => {
+const Nav = ({ path }: NavProps) => {
   const {
     ednLinks,
     fromPageParameter,
@@ -34,18 +33,17 @@ const Nav: FC<IProps> = ({ path }) => {
   const navWrapperRef = useRef(null)
 
   return (
-    <Box position="sticky" top={0} zIndex={100} width="full">
+    <Box position="sticky" top="0" zIndex="100" width="full">
       <Flex
         ref={navWrapperRef}
         as="nav"
-        // TODO
-        // aria-label={t("nav-primary")}
+        aria-label={t("nav-primary")}
         bg="background.base"
         borderBottom="1px"
         borderColor="rgba(0, 0, 0, 0.1)"
         height="4.75rem"
         justifyContent="center"
-        py={4}
+        py="4"
         px={{ base: 4, xl: 8 }}
       >
         <Flex
@@ -55,9 +53,8 @@ const Nav: FC<IProps> = ({ path }) => {
           maxW="container.2xl"
         >
           <BaseLink
-            to="/"
-            // TODO
-            // aria-label={t("home")}
+            href="/"
+            aria-label={t("home")}
             display="inline-flex"
             alignItems="center"
             textDecor="none"
@@ -84,7 +81,7 @@ const Nav: FC<IProps> = ({ path }) => {
                 toggleSearch={searchModalDisclosure.onOpen}
                 drawerContainerRef={navWrapperRef}
               />
-              <HStack spacing={2} hideBelow="lg">
+              <HStack spacing="2" hideBelow="lg">
                 <IconButton
                   transition="transform 0.5s, color 0.2s"
                   icon={isDarkTheme ? <MdWbSunny /> : <MdBrightness2 />}
@@ -95,20 +92,20 @@ const Nav: FC<IProps> = ({ path }) => {
                   }
                   variant="ghost"
                   isSecondary
-                  px={1.5}
+                  px="1.5"
                   _hover={{
                     transform: "rotate(10deg)",
                     color: "primary.hover",
                   }}
                   onClick={toggleColorMode}
-                ></IconButton>
+                />
                 <ButtonLink
                   to={`/languages/${fromPageParameter}`}
                   transition="color 0.2s"
                   leftIcon={<Icon as={MdLanguage} />}
                   variant="ghost"
                   isSecondary
-                  px={1.5}
+                  px="1.5"
                   _hover={{
                     color: "primary.hover",
                     "& svg": {
@@ -127,41 +124,43 @@ const Nav: FC<IProps> = ({ path }) => {
       {shouldShowSubNav && (
         <Flex
           as="nav"
-          // TODO
-          // aria-label={t("nav-developers")}
+          aria-label={t("nav-developers")}
           display={{ base: "none", lg: "flex" }}
           bg="ednBackground"
           borderBottom="1px"
           borderColor="border"
           boxSizing="border-box"
-          py={4}
-          px={8}
+          py="4"
+          px="8"
         >
-          {ednLinks.map((link, idx) => (
-            <BaseLink
-              key={idx}
-              to={link.to}
-              isPartiallyActive={link.isPartiallyActive}
-              color="text"
-              fontWeight="normal"
-              textDecor="none"
-              me={8}
-              _hover={{
-                color: "primary.base",
-                svg: {
-                  fill: "currentColor",
-                },
-              }}
-              _visited={{}}
-              sx={{
-                svg: {
-                  fill: "currentColor",
-                },
-              }}
-            >
-              {link.text}
-            </BaseLink>
-          ))}
+          {ednLinks.map((item) => {
+            if (!("to" in item)) return null
+            return (
+              <BaseLink
+                key={item.to}
+                href={item.to}
+                isPartiallyActive={item.isPartiallyActive}
+                color="text"
+                fontWeight="normal"
+                textDecor="none"
+                me="8"
+                _hover={{
+                  color: "primary.base",
+                  svg: {
+                    fill: "currentColor",
+                  },
+                }}
+                _visited={{}}
+                sx={{
+                  svg: {
+                    fill: "currentColor",
+                  },
+                }}
+              >
+                {item.text}
+              </BaseLink>
+            )
+          })}
         </Flex>
       )}
     </Box>
