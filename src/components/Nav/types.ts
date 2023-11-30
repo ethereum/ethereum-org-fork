@@ -8,10 +8,9 @@ export type SectionKey =
 export type NavItem = {
   text: string
   isPartiallyActive?: boolean
-} & (
-    | { to: string }
-    | { items: NavItem[] }
-  )
+  to?: string
+  items?: NavItem[]
+}
 
 export type NavSection = {
   text: string
