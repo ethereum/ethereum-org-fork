@@ -1,10 +1,10 @@
-import React, { Fragment, ReactNode, RefObject } from "react"
+import { Fragment, type ReactNode, type RefObject } from "react"
 import { motion } from "framer-motion"
 import { useTranslation } from "next-i18next"
 import { MdBrightness2, MdLanguage, MdSearch, MdWbSunny } from "react-icons/md"
 import {
   Box,
-  ButtonProps,
+  type ButtonProps,
   Drawer,
   DrawerBody,
   DrawerContent,
@@ -17,18 +17,18 @@ import {
   ListItem,
 } from "@chakra-ui/react"
 
-import type { ChildOnlyProp } from "../../lib/types"
-import { Button } from "../Buttons"
-import { BaseLink } from "../Link"
+import type { ChildOnlyProp } from "@/lib/types"
 
-import { ISections } from "./types"
+import { Button } from "@/components/Buttons"
+import { BaseLink } from "@/components/Link"
+import type { NavSections } from "@/components/Nav/types"
 
 const NavListItem = forwardRef<{ "aria-label"?: string }, typeof List>(
-  (props, ref) => <ListItem ref={ref} mb={12} {...props} />
+  (props, ref) => <ListItem ref={ref} mb="12" {...props} />
 )
 
 const SectionItem = forwardRef<ChildOnlyProp, typeof ListItem>((props, ref) => (
-  <ListItem ref={ref} mb={4} opacity={0.7} _hover={{ opacity: 1 }} {...props} />
+  <ListItem ref={ref} mb="4" opacity={0.7} _hover={{ opacity: 1 }} {...props} />
 ))
 
 const StyledNavLink = (props: {
@@ -74,9 +74,9 @@ const FooterItemText = (props: ChildOnlyProp) => (
   <Box
     fontSize="sm"
     lineHeight={1.6}
-    fontWeight={400}
+    fontWeight="normal"
     letterSpacing="0.04em"
-    mt={2}
+    mt="2"
     textTransform="uppercase"
     textAlign="center"
     opacity={0.7}
@@ -103,18 +103,18 @@ const glyphPathVariants = {
   },
 }
 
-export interface IProps extends ButtonProps {
+type MobileNavMenuProps = ButtonProps & {
   isMenuOpen: boolean
   isDarkTheme: boolean
   toggleMenu: () => void
   toggleTheme: () => void
   toggleSearch: () => void
-  linkSections: ISections
+  linkSections: NavSections
   fromPageParameter: string
   drawerContainerRef: RefObject<HTMLElement | null>
 }
 
-const MobileNavMenu: React.FC<IProps> = ({
+const MobileNavMenu = ({
   isMenuOpen,
   isDarkTheme,
   toggleMenu,
@@ -124,7 +124,7 @@ const MobileNavMenu: React.FC<IProps> = ({
   fromPageParameter,
   drawerContainerRef,
   ...props
-}) => {
+}: MobileNavMenuProps) => {
   const { t } = useTranslation("common")
 
   const handleClick = (): void => {
@@ -138,7 +138,7 @@ const MobileNavMenu: React.FC<IProps> = ({
         aria-label={t("aria-toggle-search-button")}
         variant="ghost"
         isSecondary
-        px={0}
+        px="0"
         zIndex={2000}
         {...props}
       >
@@ -146,8 +146,8 @@ const MobileNavMenu: React.FC<IProps> = ({
           viewBox="0 0 24 40"
           pointerEvents={isMenuOpen ? "none" : "auto"}
           mx={0.5}
-          width={6}
-          height={10}
+          width="6"
+          height="10"
           position="relative"
           strokeWidth="2px"
           zIndex={100}
@@ -174,37 +174,37 @@ const MobileNavMenu: React.FC<IProps> = ({
       <Drawer
         portalProps={{ containerRef: drawerContainerRef }}
         isOpen={isMenuOpen}
-        onClose={handleClick}
+        onClose={toggleMenu}
         placement="start"
         size="sm"
       >
         <DrawerOverlay bg="modalBackground" />
         <DrawerContent bg="background.base">
-          <DrawerBody pt={12} pb={24} px={4}>
-            <List m={0}>
+          <DrawerBody pt="12" pb="24" px="4">
+            <List m="0">
               {Object.keys(linkSections).map((sectionKey, idx) => {
                 const section = linkSections[sectionKey]
 
                 return section.items ? (
                   <NavListItem key={idx} aria-label={`Select ${section.text}`}>
-                    <Box color="text" my={4} fontSize="1.3rem">
+                    <Box color="text" my="4" fontSize="1.3rem">
                       {section.text}
                     </Box>
-                    <List m={0}>
+                    <List m="0">
                       {section.items.map((item, idx) =>
                         item.items ? (
                           <Fragment key={idx}>
                             <Box
-                              mt={8}
-                              mb={4}
+                              mt="8"
+                              mb="4"
                               fontSize="0.9rem"
-                              lineHeight={1}
+                              lineHeight="none"
                               color="currentColor"
                             >
                               {item.text}
                             </Box>
                             {item.items.map((item, idx) => (
-                              <SectionItem key={idx} onClick={handleClick}>
+                              <SectionItem key={idx} onClick={toggleMenu}>
                                 <StyledNavLink
                                   to={item.to}
                                   isPartiallyActive={item.isPartiallyActive}
@@ -246,8 +246,8 @@ const MobileNavMenu: React.FC<IProps> = ({
             borderColor="lightBorder"
             justifyContent="space-between"
             height="108px"
-            px={4}
-            py={0}
+            px="4"
+            py="0"
             mt="auto"
           >
             <FooterItem

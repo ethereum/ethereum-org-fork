@@ -1,19 +1,14 @@
-import { Flex, FlexProps, List } from "@chakra-ui/react"
+import { Flex, type FlexProps, List } from "@chakra-ui/react"
 
-import NavDropdown from "./Dropdown"
-// import { getDirection } from "../../utils/translations"
-// import { Lang } from "../../utils/languages"
-import { ISections } from "./types"
+import NavDropdown from "@/components/Nav/Dropdown"
+import type { NavSections } from "@/components/Nav/types"
 
-export interface IProps extends FlexProps {
+type MenuProps = FlexProps & {
   path: string
-  sections: ISections
+  sections: NavSections
 }
 
-const Menu: React.FC<IProps> = ({ path, sections, ...props }) => {
-  // const { locale } = useRouter()
-  const direction = "ltr"
-  // const direction = getDirection(language as Lang)
+const Menu = ({ path, sections, ...props }: MenuProps) => {
   const shouldShowSubNav = path.includes("/developers/")
 
   const { useEthereum, learn, ...restSections } = sections
@@ -24,7 +19,7 @@ const Menu: React.FC<IProps> = ({ path, sections, ...props }) => {
     <Flex
       as={List}
       alignItems="center"
-      m={0}
+      m="0"
       gap={{ base: 3, xl: 6 }}
       {...props}
     >
@@ -42,10 +37,10 @@ const Menu: React.FC<IProps> = ({ path, sections, ...props }) => {
       </NavDropdown>
 
       <NavDropdown section={learn} hasSubNav={shouldShowSubNav}>
-        <Flex flexDir={direction === "ltr" ? "row" : "row-reverse"}>
-          <Flex flexDir="column" gap={4}>
+        <Flex>
+          <Flex flexDir="column" gap="4">
             {[start, basics].map((section, index) => (
-              <List m={0} key={index}>
+              <List m="0" key={index}>
                 <NavDropdown.Title>{section.text}</NavDropdown.Title>
                 {(section.items || []).map((item, index) => (
                   <NavDropdown.Item key={index}>
@@ -58,7 +53,7 @@ const Menu: React.FC<IProps> = ({ path, sections, ...props }) => {
             ))}
           </Flex>
           <div>
-            <List m={0}>
+            <List m="0">
               <NavDropdown.Title>{protocol.text}</NavDropdown.Title>
               {(protocol.items || []).map((item, index) => (
                 <NavDropdown.Item

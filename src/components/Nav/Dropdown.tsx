@@ -1,22 +1,34 @@
-import React, { createRef, useContext, useState } from "react"
+import {
+  createContext,
+  createRef,
+  type FC,
+  type KeyboardEvent,
+  type ReactNode,
+  useContext,
+  useState,
+} from "react"
 import { MdExpandMore } from "react-icons/md"
-import { Box, Fade, Flex, Icon, ListItem } from "@chakra-ui/react"
+import {
+  Box,
+  Fade,
+  Flex,
+  Icon,
+  ListItem,
+  useOutsideClick,
+} from "@chakra-ui/react"
 
-import { BaseLink, type LinkProps } from "../Link"
+import type { ChildOnlyProp } from "@/lib/types"
 
-// TODO
-// import { useOnClickOutside } from "../../hooks/useOnClickOutside"
-// import { getDirection } from "../../utils/translations"
-// import { Lang } from "../../utils/languages"
-import { ISection } from "./types"
+import { BaseLink, type LinkProps } from "@/components/Link"
+import type { NavSection } from "@/components/Nav/types"
 
 const NavLink = (props: LinkProps) => (
   <BaseLink
     color="text200"
     display="block"
     textDecor="none"
-    py={2}
-    px={4}
+    py="2"
+    px="4"
     fontWeight="normal"
     _hover={{
       textDecor: "none",
@@ -29,42 +41,40 @@ const NavLink = (props: LinkProps) => (
   />
 )
 
-interface IDropdownContext {
+type DropdownContext = {
   isOpen: boolean
   toggle: () => void
   close: () => void
   tabInteractionHandler: (
-    e: React.KeyboardEvent<HTMLElement>,
+    e: KeyboardEvent<HTMLElement>,
     shouldClose: boolean
   ) => void
 }
 
-const DropdownContext = React.createContext<IDropdownContext | null>(null)
+const DropdownContext = createContext<DropdownContext | null>(null)
 
-export interface IProps {
-  children?: React.ReactNode
-  section: ISection
+type NavDropdownProps = {
+  children?: ReactNode
+  section: NavSection
   hasSubNav: boolean
 }
 
-const NavDropdown: React.FC<IProps> & {
+const NavDropdown: FC<NavDropdownProps> & {
   Item: typeof Item
   Link: typeof BaseLink
   Title: typeof Title
 } = ({ children, section, hasSubNav }) => {
   const [isOpen, setIsOpen] = useState(false)
 
-  // const { locale } = useRouter()
   const ref = createRef<HTMLLIElement>()
 
   const toggle = () => setIsOpen((isOpen) => !isOpen)
   const close = () => setIsOpen(false)
 
-  // TODO
-  // useOnClickOutside(ref, () => setIsOpen(false))
+  useOutsideClick({ ref, handler: close })
 
   // Toggle on `enter` key
-  const onKeyDownHandler = (e: React.KeyboardEvent<HTMLElement>): void => {
+  const onKeyDownHandler = (e: KeyboardEvent<HTMLElement>): void => {
     if (e.keyCode === 13) {
       setIsOpen(!isOpen)
     } else if (e.shiftKey && e.keyCode === 9) {
@@ -73,7 +83,7 @@ const NavDropdown: React.FC<IProps> & {
   }
 
   const tabInteractionHandler = (
-    e: React.KeyboardEvent<HTMLElement>,
+    e: KeyboardEvent<HTMLElement>,
     shouldClose: boolean
   ): void => {
     if (shouldClose) {
@@ -91,7 +101,7 @@ const NavDropdown: React.FC<IProps> & {
         ref={ref}
         aria-label={ariaLabel}
         whiteSpace="nowrap"
-        m={0}
+        m="0"
         color="text"
         _hover={{ color: "primary.base" }}
       >
@@ -104,7 +114,7 @@ const NavDropdown: React.FC<IProps> & {
           aria-expanded={isOpen ? "true" : "false"}
           alignItems="center"
           cursor="pointer"
-          py={2}
+          py="2"
           _hover={{
             "& > svg": {
               fill: "currentColor",
@@ -115,7 +125,7 @@ const NavDropdown: React.FC<IProps> & {
           <Icon
             as={MdExpandMore}
             color="text200"
-            boxSize={6}
+            boxSize="6"
             transform={isOpen ? "rotate(180deg)" : undefined}
           />
         </Flex>
@@ -126,11 +136,11 @@ const NavDropdown: React.FC<IProps> & {
           bg="dropdownBackground"
           border="1px"
           borderColor="dropdownBorder"
-          m={0}
+          m="0"
           mt={hasSubNav ? "-4.5rem" : -4}
           position="absolute"
           top="100%"
-          py={4}
+          py="4"
           borderRadius="base"
           width="auto"
         >
@@ -141,20 +151,20 @@ const NavDropdown: React.FC<IProps> & {
   )
 }
 
-interface IItemProp {
-  children?: React.ReactNode
+type ItemProp = {
+  children?: ReactNode
   isLast?: boolean
 }
 
-const Item: React.FC<IItemProp> = ({ children, isLast = false, ...rest }) => {
+const Item = ({ children, isLast = false, ...props }: ItemProp) => {
   const context = useContext(DropdownContext)
 
   return (
     <ListItem
-      {...rest}
+      {...props}
       onClick={() => context?.close()}
       onKeyDown={(e) => context?.tabInteractionHandler(e, isLast)}
-      m={0}
+      m="0"
       color="inherit"
       _hover={{
         bg: "dropdownBackgroundHover",
@@ -166,25 +176,19 @@ const Item: React.FC<IItemProp> = ({ children, isLast = false, ...rest }) => {
   )
 }
 
-interface ITitleProps {
-  children?: React.ReactNode
-}
-
-const Title: React.FC<ITitleProps> = (props) => {
-  return (
-    <Box
-      as="span"
-      color="text"
-      display="block"
-      fontFamily="heading"
-      fontSize="1.3rem"
-      lineHeight={1.4}
-      mb={2}
-      px={4}
-      {...props}
-    />
-  )
-}
+const Title = (props: ChildOnlyProp) => (
+  <Box
+    as="span"
+    color="text"
+    display="block"
+    fontFamily="heading"
+    fontSize="1.3rem"
+    lineHeight={1.4}
+    mb="2"
+    px="4"
+    {...props}
+  />
+)
 
 NavDropdown.Item = Item
 NavDropdown.Link = NavLink
