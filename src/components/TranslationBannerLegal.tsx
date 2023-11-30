@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
+import { useTranslation } from "next-i18next"
 import {
   Box,
   Button,
@@ -8,24 +9,22 @@ import {
   useToken,
 } from "@chakra-ui/react"
 
-import Emoji from "./Emoji"
-import Text from "./OldText"
-import Translation from "./Translation"
+import Emoji from "@/components/Emoji"
+import Text from "@/components/OldText"
 
-export interface IProps {
+type TranslationBannerLegalProps = {
   shouldShow: boolean
-  isPageRightToLeft: boolean
   originalPagePath: string
 }
 
-const TranslationBannerLegal: React.FC<IProps> = ({
+const TranslationBannerLegal = ({
   shouldShow,
   originalPagePath,
-  isPageRightToLeft,
-}) => {
+}: TranslationBannerLegalProps) => {
+  const { t } = useTranslation("common")
   // Default to isOpen being false, and let the useEffect set this.
   const [isOpen, setIsOpen] = useState(false)
-  const [cardBoxShadow, text] = useToken("colors", ["cardBoxShadow", "text"])
+  const text = useToken("colors", "text")
 
   useEffect(() => {
     if (
@@ -54,31 +53,26 @@ const TranslationBannerLegal: React.FC<IProps> = ({
         justify="space-between"
         maxW={{ base: "full", md: "600px" }}
         maxH="full"
-        p={4}
+        p="4"
         borderRadius="sm"
         boxShadow={{
           base: `-4px 10px 0px ${text} 10%`,
           md: "rgba(0, 0, 0, 0.16) 0px 2px 4px 0px",
         }}
       >
-        <Flex
-          direction="column"
-          align={isPageRightToLeft ? "flex-end" : "flex-start"}
-          m={4}
-          mt={{ base: 10, sm: 4 }}
-        >
+        <Flex direction="column" m="4" mt={{ base: 10, sm: 4 }}>
           <Flex
             align={{ base: "flex-start", sm: "center" }}
             flexDirection={{ base: "column-reverse", sm: "row" }}
-            mb={4}
+            mb="4"
           >
             <Heading
               as="h3"
-              fontSize={{ base: "1.25rem", md: "1.5rem" }}
+              fontSize={{ base: "xl", md: "2xl" }}
               fontWeight="bold"
               lineHeight="100%"
             >
-              <Translation id="translation-banner-no-bugs-title" />
+              {t("translation-banner-no-bugs-title")}
               <Emoji
                 text=":bug:"
                 fontSize="3xl"
@@ -88,9 +82,7 @@ const TranslationBannerLegal: React.FC<IProps> = ({
               />
             </Heading>
           </Flex>
-          <Text>
-            <Translation id="translation-banner-no-bugs-content" />
-          </Text>
+          <Text>{t("translation-banner-no-bugs-content")}</Text>
           <Flex
             align={{ base: "flex-start", sm: "center" }}
             flexDirection={{ base: "column", sm: "row" }}
@@ -104,15 +96,15 @@ const TranslationBannerLegal: React.FC<IProps> = ({
                 setIsOpen(false)
               }}
             >
-              <Translation id="translation-banner-no-bugs-dont-show-again" />
+              {t("translation-banner-no-bugs-dont-show-again")}
             </Button>
           </Flex>
         </Flex>
         <CloseButton
           position="absolute"
-          top={0}
-          insetInlineEnd={isPageRightToLeft ? "auto" : 0}
-          margin={4}
+          top="0"
+          insetInlineEnd="0"
+          margin="4"
           color="secondary"
           _hover={{
             color: "primary.base",

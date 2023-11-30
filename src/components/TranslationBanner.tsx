@@ -2,24 +2,22 @@ import { useEffect, useState } from "react"
 import { useTranslation } from "next-i18next"
 import { Box, CloseButton, Flex, Heading, useToken } from "@chakra-ui/react"
 
-import { DEFAULT_LOCALE } from "../lib/constants"
+import { ButtonLink } from "@/components/Buttons"
+import Emoji from "@/components/Emoji"
 
-import { ButtonLink } from "./Buttons"
-import Emoji from "./Emoji"
+import { DEFAULT_LOCALE } from "@/lib/constants"
 
-export interface IProps {
+type TranslationBannerProps = {
   shouldShow: boolean
-  isPageRightToLeft: boolean
   originalPagePath: string
   isPageContentEnglish: boolean
 }
 
-const TranslationBanner: React.FC<IProps> = ({
+const TranslationBanner = ({
   shouldShow,
-  isPageRightToLeft,
   originalPagePath,
   isPageContentEnglish,
-}) => {
+}: TranslationBannerProps) => {
   const [isOpen, setIsOpen] = useState(shouldShow)
   const [textColor] = useToken("colors", ["text"])
   const { t } = useTranslation("common")
@@ -58,15 +56,10 @@ const TranslationBanner: React.FC<IProps> = ({
         }}
         borderRadius="sm"
       >
-        <Flex
-          flexDirection="column"
-          alignItems={isPageRightToLeft ? "flex-end" : "flex-start"}
-          m={4}
-          mt={{ base: 10, sm: 4 }}
-        >
+        <Flex flexDirection="column" m="4" mt={{ base: 10, sm: 4 }}>
           <Flex
             align={{ base: "flex-start", sm: "center" }}
-            mb={4}
+            mb="4"
             flexDirection={{ base: "column-reverse", sm: "row" }}
           >
             <Heading
@@ -81,7 +74,7 @@ const TranslationBanner: React.FC<IProps> = ({
             <Emoji
               text=":globe_showing_asia_australia:"
               fontSize="2xl"
-              ms={2}
+              ms="2"
               mb={{ base: 4, sm: "auto" }}
             />
           </Flex>
@@ -91,14 +84,14 @@ const TranslationBanner: React.FC<IProps> = ({
             flexDirection={{ base: "column", sm: "row" }}
           >
             <Box>
-              <ButtonLink to="/contributing/translation-program/">
+              <ButtonLink href="/contributing/translation-program/">
                 {t("translation-banner-button-translate-page")}
               </ButtonLink>
             </Box>
             {!isPageContentEnglish && (
               <Box>
                 <ButtonLink
-                  to={originalPagePath}
+                  href={originalPagePath}
                   variant="outline"
                   ms={{ base: 0, sm: 2 }}
                   mt={{ base: 2, sm: 0 }}
@@ -115,8 +108,8 @@ const TranslationBanner: React.FC<IProps> = ({
         <CloseButton
           position="absolute"
           top="0"
-          insetInlineEnd={isPageRightToLeft ? "auto" : 0}
-          margin={2}
+          insetInlineEnd="0"
+          margin="2"
           color="secondary"
           _hover={{
             color: "primary.base",
