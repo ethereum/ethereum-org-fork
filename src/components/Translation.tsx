@@ -1,5 +1,4 @@
 import htmr from "htmr"
-import type { TOptions } from "i18next"
 import { useRouter } from "next/router"
 import { useTranslation } from "next-i18next"
 
@@ -9,7 +8,7 @@ import InlineLink from "./Link"
 
 interface Props {
   id: string
-  options?: TOptions
+  options?: any
 }
 
 // Custom components mapping to be used by `htmr` when parsing the translation

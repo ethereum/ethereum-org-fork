@@ -1,4 +1,5 @@
 import React from "react"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 import { IoCodeOutline } from "react-icons/io5"
 import {
   Box,
@@ -10,18 +11,18 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react"
 
-import { TranslationKey } from "@/lib/types"
+import { TranslationKey } from "../utils/translations"
 
-import { Image } from "@/components/Image"
-import { BaseLink } from "@/components/Link"
-import Translation from "@/components/Translation"
+import GatsbyImage from "./GatsbyImage"
+import { BaseLink } from "./Link"
+import Translation from "./Translation"
 
 export interface ITitleCardItem {
   title: string
   description: string
   caption?: string
   link?: string
-  image?: string
+  image?: IGatsbyImageData
   alt?: string
   id?: number
 }
@@ -123,12 +124,12 @@ const TitleCardList: React.FC<IProps> = ({
             }}
           >
             {image && (
-              <Image
-                src={image}
-                alt={alt || ""}
+              <GatsbyImage
                 marginTop={1}
                 me={4}
                 minWidth={5}
+                image={image}
+                alt={alt || ""}
               />
             )}
             <Flex flex="1 1 75%" flexDirection="column" me={8}>
@@ -189,12 +190,12 @@ const TitleCardList: React.FC<IProps> = ({
             }}
           >
             {image && (
-              <Image
-                src={image}
-                alt={alt || ""}
+              <GatsbyImage
                 marginTop={1}
                 me={4}
                 minWidth={5}
+                image={image}
+                alt={alt || ""}
               />
             )}
             <Flex flex="1 1 75%" flexDirection="column" me={8}>

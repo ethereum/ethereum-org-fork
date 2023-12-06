@@ -1,19 +1,20 @@
 import React, { ReactNode } from "react"
-import { StaticImageData } from "next/image"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 import {
   Box,
   BoxProps,
   Flex,
   Heading,
+  Image,
   LinkBox,
   LinkBoxProps,
   LinkOverlay,
   useColorModeValue,
 } from "@chakra-ui/react"
 
-import { Image } from "@/components/Image"
-import { BaseLink } from "@/components/Link"
-import Text from "@/components/OldText"
+import GatsbyImage from "./GatsbyImage"
+import { BaseLink } from "./Link"
+import Text from "./OldText"
 
 const linkBoxFocusStyles: BoxProps = {
   borderRadius: "base",
@@ -31,7 +32,7 @@ export interface IProps extends Omit<LinkBoxProps, "title"> {
   children?: React.ReactNode
   to: string
   alt?: string
-  image: StaticImageData
+  image: IGatsbyImageData | string
   title: ReactNode
   description?: ReactNode
   className?: string
@@ -51,6 +52,7 @@ const ActionCard: React.FC<IProps> = ({
   isBottom = true,
   ...rest
 }) => {
+  const isImageURL = typeof image === "string"
   const descriptionColor = useColorModeValue("blackAlpha.700", "whiteAlpha.800")
 
   return (
@@ -67,7 +69,7 @@ const ActionCard: React.FC<IProps> = ({
       {...rest}
     >
       <Flex
-        h="260px"
+        minH="260px"
         bg="cardGradient"
         direction="row"
         justify={isRight ? "flex-end" : "center"}
@@ -75,16 +77,29 @@ const ActionCard: React.FC<IProps> = ({
         className="action-card-image-wrapper"
         boxShadow="inset 0px -1px 0px rgba(0, 0, 0, 0.1)"
       >
-        <Image
-          src={image}
-          width={320}
-          alt={alt || ""}
-          maxH="257px"
-          maxW={{ base: "311px", sm: "372px" }}
-          minW="100px"
-          minH="100px"
-          style={{ objectFit: "cover" }}
-        />
+        {!isImageURL && (
+          <GatsbyImage
+            alt={alt || ""}
+            maxH="257px"
+            maxW={{ base: "311px", sm: "372px" }}
+            minW="100px"
+            minH="100px"
+            image={image}
+            sizes="full"
+          />
+        )}
+        {isImageURL && (
+          <Image
+            alt={alt || ""}
+            maxH="257px"
+            maxW={{ base: "311px", sm: "372px" }}
+            minW="100px"
+            minH="100px"
+            src={image}
+            sizes="full"
+            className="action-card-image"
+          />
+        )}
       </Flex>
       <Box p={6} className="action-card-content">
         <Heading

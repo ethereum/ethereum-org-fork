@@ -1,9 +1,8 @@
 import * as React from "react"
 import { Box, Heading, HStack, SimpleGrid, Stack, Text } from "@chakra-ui/react"
 
-import Breadcrumbs, { IProps as BreadcrumbsProps } from "@/components/Breadcrumbs"
-import { Image } from "@/components/Image"
-
+import Breadcrumbs, { IProps as BreadcrumbsProps } from "../../Breadcrumbs"
+import GatsbyImage from "../../GatsbyImage"
 import { CallToAction } from "../CallToAction"
 import { CommonHeroProps } from "../utils"
 
@@ -20,9 +19,9 @@ const ContentHero = (props: ContentHeroProps) => {
           height={{ base: "300px", md: "400px", lg: "full" }}
           order={{ lg: 1 }}
         >
-          <Image
-            src={heroImgSrc}
+          <GatsbyImage
             alt=""
+            image={heroImgSrc}
             loading="eager"
             objectFit="contain"
             boxSize="full"
