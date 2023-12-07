@@ -4,6 +4,7 @@ import { useRouter } from "next/router"
 import type { ReactNode } from "react"
 import { Container } from "@chakra-ui/react"
 
+import FeedbackWidget from "@/components/FeedbackWidget"
 import Footer from "@/components/Footer"
 import Nav from "@/components/Nav"
 import TranslationBanner from "@/components/TranslationBanner"
@@ -63,6 +64,7 @@ export const RootLayout = ({
       {children}
 
       <Footer lastDeployDate={lastDeployDate} />
+      <FeedbackWidget />
     </Container>
   )
 }

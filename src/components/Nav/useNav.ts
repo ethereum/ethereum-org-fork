@@ -284,7 +284,7 @@ export const useNav = ({ path }: { path: string }) => {
     setIsMenuOpen((prev) => !prev)
   }
 
-  const shouldShowSubNav = path.includes("/developers/")
+  const shouldShowSubNav = path.includes("/developers")
   const splitPath = path.split("/")
   const fromPageParameter =
     splitPath.length > 3 && splitPath[2] !== "languages"
