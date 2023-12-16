@@ -333,10 +333,10 @@ const HomePage = ({
 
   return (
     <Flex flexDirection="column" alignItems="center" dir={dir} width="full">
-      <PageMetadata
+      {/* <PageMetadata
         title={t("page-index:page-index-meta-title")}
         description={t("page-index:page-index-meta-description")}
-      />
+      /> */}
       <Box w="full">
         <HomeHero heroImg={hero} />
       </Box>
