@@ -1,6 +1,6 @@
 import NextDocument, {
   DocumentContext,
-  Head,
+  // Head,
   Html,
   Main,
   NextScript,
@@ -24,12 +24,12 @@ class Document extends NextDocument {
 
     return (
       <Html dir={dir} lang={locale}>
-        <Head>
+        {/* <Head> */}
           {/* favicon */}
-          <link rel="icon" type="image/x-icon" href="/favicon.png" />
+          {/* <link rel="icon" type="image/x-icon" href="/favicon.png" /> */}
           {/* manifest */}
-          <link rel="manifest" href="/manifest.json" />
-        </Head>
+          {/* <link rel="manifest" href="/manifest.json" /> */}
+        {/* </Head> */}
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
