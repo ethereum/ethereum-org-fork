@@ -5,6 +5,7 @@ import type {
   CrowdinContributor,
   Frontmatter,
   Lang,
+  Layout,
   ToCItem,
   TranslationKey,
 } from "@/lib/types"
@@ -70,7 +71,7 @@ export interface SharedFrontmatter {
   lang: Lang
   sidebarDepth?: number
   isOutdated?: boolean
-  template?: any
+  template?: Layout
 }
 
 export interface StaticFrontmatter extends SharedFrontmatter {
