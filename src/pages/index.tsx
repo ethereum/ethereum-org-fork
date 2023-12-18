@@ -20,6 +20,7 @@ import {
 } from "@chakra-ui/react"
 
 import { ChildOnlyProp, Lang } from "@/lib/types"
+import type { CommunityEventsReturnType } from "@/lib/interfaces"
 
 import ActionCard from "@/components/ActionCard"
 import ButtonLink from "@/components/Buttons/ButtonLink"
@@ -36,15 +37,19 @@ import TitleCardList, { ITitleCardItem } from "@/components/TitleCardList"
 import Translation from "@/components/Translation"
 
 import { getLastDeployDate } from "@/lib/utils/getLastDeployDate"
+import { runOnlyOnce } from "@/lib/utils/runOnlyOnce"
 import {
   getRequiredNamespacesForPage,
   isLangRightToLeft,
 } from "@/lib/utils/translations"
 
+import { BASE_TIME_UNIT } from "@/lib/constants"
+
 import CreateWalletContent from "!!raw-loader!@/data/CreateWallet.js"
 import SimpleDomainRegistryContent from "!!raw-loader!@/data/SimpleDomainRegistry.sol"
 import SimpleTokenContent from "!!raw-loader!@/data/SimpleToken.sol"
 import SimpleWalletContent from "!!raw-loader!@/data/SimpleWallet.sol"
+import { fetchCommunityEvents } from "@/lib/api/calendarEvents"
 import devfixed from "@/public/developers-eth-blocks.png"
 import dogefixed from "@/public/doge-computer.png"
 import enterprise from "@/public/enterprise-eth.png"
@@ -172,11 +177,15 @@ const ButtonLinkRow = (props: ChildOnlyProp) => (
 )
 
 type Props = SSRConfig & {
-  communityEvents: any
+  communityEvents: CommunityEventsReturnType
 }
+
+const cachedFetchCommunityEvents = runOnlyOnce(fetchCommunityEvents)
 
 export const getStaticProps = (async (context) => {
   const { locale } = context
+
+  const communityEvents = await cachedFetchCommunityEvents()
 
   // load i18n required namespaces for the given page
   const requiredNamespaces = getRequiredNamespacesForPage("/")
@@ -185,7 +194,7 @@ export const getStaticProps = (async (context) => {
   return {
     props: {
       ...(await serverSideTranslations(locale!, requiredNamespaces)),
-      communityEvents: [],
+      communityEvents,
       lastDeployDate,
     },
     revalidate: 60 * 2,
@@ -545,7 +554,7 @@ const HomePage = ({
         {/* <StatsBoxGrid /> */}
       </GrayContainer>
       <Divider mb={16} mt={16} w="10%" height="0.25rem" bgColor="homeDivider" />
-      {/* <CommunityEvents events={communityEvents} /> */}
+      <CommunityEvents events={communityEvents} />
       {/* Explore Section */}
       <ContentBox>
         <Box pb={4}>
