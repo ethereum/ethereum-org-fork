@@ -28,6 +28,7 @@ type BaseProps = {
   isPartiallyActive?: boolean
   activeStyle?: StyleProps
   customEventOptions?: MatomoEventOptions
+  imageLink?: boolean
 }
 
 export type LinkProps = BaseProps & Omit<NextLinkProps, "href">
@@ -53,6 +54,7 @@ export const BaseLink = forwardRef(function Link(
     isPartiallyActive = true,
     activeStyle = { color: "primary.base" },
     customEventOptions,
+    imageLink,
     ...props
   }: LinkProps,
   ref
@@ -121,7 +123,7 @@ export const BaseLink = forwardRef(function Link(
 
   return (
     <NextLink
-      locale={locale}
+      locale={imageLink ? undefined : locale} // dont use locale in next if its a local image
       onClick={() =>
         trackCustomEvent(
           customEventOptions ?? {
