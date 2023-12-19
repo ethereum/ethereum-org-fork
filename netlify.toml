@@ -21,5 +21,6 @@
   included_files = [
     "!./src/data/**/*",
     "!./public/**/*",
-    
+    "!./src/intl/**/*",
+    "!./node_modules/**/*",
   ]
