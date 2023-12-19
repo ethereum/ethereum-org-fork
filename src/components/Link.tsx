@@ -123,7 +123,7 @@ export const BaseLink = forwardRef(function Link(
 
   return (
     <NextLink
-      locale={imageLink ? undefined : locale} // dont use locale in next if its a local image
+      locale={imageLink ? false : locale} // dont use locale in next if its a local image
       onClick={() =>
         trackCustomEvent(
           customEventOptions ?? {
