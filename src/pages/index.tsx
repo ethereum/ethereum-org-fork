@@ -182,10 +182,13 @@ type Props = SSRConfig & {
 
 const cachedFetchCommunityEvents = runOnlyOnce(fetchCommunityEvents)
 
+const randomValue = (): number => Math.floor(Math.random() * 100)
+
 export const getStaticProps = (async (context) => {
   const { locale } = context
 
   const communityEvents = await cachedFetchCommunityEvents()
+  const value = randomValue()
 
   // load i18n required namespaces for the given page
   const requiredNamespaces = getRequiredNamespacesForPage("/")
@@ -196,13 +199,15 @@ export const getStaticProps = (async (context) => {
       ...(await serverSideTranslations(locale!, requiredNamespaces)),
       communityEvents,
       lastDeployDate,
+      value,
     },
-    revalidate: BASE_TIME_UNIT * 24,
+    revalidate: 60 * 2,
   }
 }) satisfies GetStaticProps<Props>
 
 const HomePage = ({
   communityEvents,
+  value,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { t } = useTranslation(["common", "page-index"])
   const { locale } = useRouter()
@@ -337,7 +342,7 @@ const HomePage = ({
               boxSize="full"
             >
               <SectionHeading fontFamily="inherit" mb={6}>
-                <Translation id="page-index:page-index-get-started" />
+                {value}
               </SectionHeading>
               <SectionDecription>
                 <Translation id="page-index:page-index-get-started-description" />
