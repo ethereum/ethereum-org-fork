@@ -19,7 +19,7 @@
 
 [functions]
   included_files = [
-    "!./src/**/*",
+    "./src/intl/**/*",
     "!./public/**/*",
     "!./node_modules/@swc/core-linux-x64-musl/**/*",
   ]
