@@ -121,9 +121,30 @@ export const BaseLink = forwardRef(function Link(
     )
   }
 
+  if (imageLink) {
+    return (
+      <NextLink
+        onClick={() =>
+          trackCustomEvent(
+            customEventOptions ?? {
+              eventCategory: `Link`,
+              eventAction: `Clicked`,
+              eventName: `Clicked on image link`,
+              eventValue: href,
+            }
+          )
+        }
+        hrefLang=""
+        {...commonProps}
+      >
+        {children}
+      </NextLink>
+    )
+  }
+
   return (
     <NextLink
-      locale={imageLink ? false : locale} // dont use locale in next if its a local image
+      locale={locale}
       onClick={() =>
         trackCustomEvent(
           customEventOptions ?? {
