@@ -21,4 +21,6 @@
   included_files = [
     "!./src/**/*",
     "!./public/**/*",
+    "!./node_modules/react-icons/**/*",
+    "!./node_modules/recharts/**/*",
   ]
