@@ -123,7 +123,7 @@ export const BaseLink = forwardRef(function Link(
 
   if (imageLink) {
     return (
-      <NextLink
+      <ChakraLink
         onClick={() =>
           trackCustomEvent(
             customEventOptions ?? {
@@ -134,11 +134,10 @@ export const BaseLink = forwardRef(function Link(
             }
           )
         }
-        hrefLang=""
         {...commonProps}
       >
         {children}
-      </NextLink>
+      </ChakraLink>
     )
   }
 
