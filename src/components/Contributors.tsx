@@ -5,8 +5,7 @@ import { Box, Flex, Image, LinkBox, LinkOverlay } from "@chakra-ui/react"
 import InlineLink from "@/components/Link"
 import Text from "@/components/OldText"
 
-// TODO: Re-import once Crowdin scripts are functional and data available
-// import data from "../data/contributors.json"
+import allContributors from "!!raw-loader!/@/../.all-contributorsrc"
 
 export interface Contributor {
   login: string
@@ -20,12 +19,13 @@ const Contributors = () => {
   const [contributorsList, setContributorsList] = useState<Array<Contributor>>(
     []
   )
+  const data = JSON.parse(allContributors)
 
-  // TODO: Re-enable once Crowdin scripts are functional and data available
-  // useEffect(() => {
-  //   const list = shuffle(data.contributors)
-  //   setContributorsList(list)
-  // }, [])
+  useEffect(() => {
+    const list = shuffle(data.contributors)
+    setContributorsList(list)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <>
