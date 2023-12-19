@@ -19,7 +19,6 @@
 
 [functions]
   included_files = [
-    "!./src/data/**/*",
+    "!./src/**/*",
     "!./public/**/*",
-    
   ]
