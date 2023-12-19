@@ -21,4 +21,5 @@
   included_files = [
     "!./src/**/*",
     "!./public/**/*",
+    "!./node_modules/@swc/core-linux-x64-musl/**/*",
   ]
