@@ -1,7 +1,7 @@
 ---
 title: Separação de Proponente-Construtor
 description: Saiba como e por que os validadores do Ethereum dividirão suas responsabilidades de construção e transmissão de blocos.
-lang: pt-br
+lang: pt-BR
 ---
 
 # Separação de Proponente-Construtor {#proposer-builder-separation}

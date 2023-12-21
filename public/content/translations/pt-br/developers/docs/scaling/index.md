@@ -1,7 +1,7 @@
 ---
 title: Dimensionamento
 description: Uma introdução às diferentes opções de dimensionamento atualmente em desenvolvimento pela comunidade Ethereum.
-lang: pt-br
+lang: pt-BR
 sidebarDepth: 3
 ---
 

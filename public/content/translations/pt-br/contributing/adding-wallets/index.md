@@ -1,7 +1,7 @@
 ---
 title: Adicionando carteiras
 description: A política que usamos ao adicionar uma carteira ao ethereum.org
-lang: pt-br
+lang: pt-BR
 ---
 
 # Adicionando carteiras {#adding-wallets}
@@ -12,8 +12,8 @@ Qualquer pessoa pode sugerir a adição de uma carteira no ethereum.org. Se houv
 
 Qualquer pessoa pode sugerir uma nova carteira. As carteiras atualmente listadas estão em:
 
-- [ethereum.org/pt-br/wallets/find-wallet/](/wallets/find-wallet/)
-- [ethereum.org/pt-br/wallets/](/wallets/)
+- [ethereum.org/pt-BR/wallets/find-wallet/](/wallets/find-wallet/)
+- [ethereum.org/pt-BR/wallets/](/wallets/)
 
 As carteiras estão mudando rapidamente no Ethereum. Tentamos criar uma estrutura justa a ser considerada no ethereum.org, mas os critérios listados mudarão e evoluirão com o tempo.
 

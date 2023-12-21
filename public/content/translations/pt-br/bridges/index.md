@@ -1,7 +1,7 @@
 ---
 title: Introdução às pontes de blockchain
 description: Pontes permitem que os usuários movam seus fundos entre blockchains diferentes
-lang: pt-br
+lang: pt-BR
 ---
 
 # Pontes de blockchains {#prerequisites}

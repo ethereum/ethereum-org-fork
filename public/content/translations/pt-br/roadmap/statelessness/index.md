@@ -1,7 +1,7 @@
 ---
 title: Sem estado, expiração do estado e expiração do histórico
 description: Explicação sobre a expiração do histórico e o Ethereum sem estado
-lang: pt-br
+lang: pt-BR
 ---
 
 # Sem estado, expiração do estado e expiração do histórico {#statelessness}

@@ -1,7 +1,7 @@
 ---
 title: Recompensas e penalidades na prova de participação
 description: Saiba mais sobre os incentivos no protocolo da prova de participação Ethereum.
-lang: pt-br
+lang: pt-BR
 ---
 
 Ethereum é protegido usando sua criptomoeda nativa, ether (ETH). Operadores de nós que desejam participar na validação de blocos e na identificação do cabeçalho da cadeia depositam ether em um contrato inteligente no Ethereum. Eles são então pagos em ether para executar um software validador que verifica a validade de novos blocos recebidos pela rede ponto a ponto e aplicam o algoritmo de escolha de bifurcação para identificar o cabeçalho da cadeia.

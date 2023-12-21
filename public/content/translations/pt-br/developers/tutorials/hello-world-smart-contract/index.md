@@ -10,7 +10,7 @@ tags:
   - "primeiros passos"
   - "implementação"
 skill: beginner
-lang: pt-br
+lang: pt-BR
 published: 2021-03-31
 ---
 

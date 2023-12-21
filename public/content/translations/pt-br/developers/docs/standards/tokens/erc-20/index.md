@@ -1,7 +1,7 @@
 ---
 title: Padrão de token ERC-20
 description: Token
-lang: pt-br
+lang: pt-BR
 ---
 
 ## Introdução {#introduction}

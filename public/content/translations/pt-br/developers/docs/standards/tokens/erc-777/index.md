@@ -1,7 +1,7 @@
 ---
 title: Padrão de token ERC-777
 description: Token
-lang: pt-br
+lang: pt-BR
 ---
 
 ## Atenção {#warning}

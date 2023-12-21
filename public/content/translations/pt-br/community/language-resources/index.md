@@ -1,7 +1,7 @@
 ---
 title: Recursos de idiomas
 description: Recursos para aprender sobre Ethereum em outros idiomas
-lang: pt-br
+lang: pt-BR
 ---
 
 # Recursos de idiomas {#language-resources}

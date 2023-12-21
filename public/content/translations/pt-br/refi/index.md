@@ -1,7 +1,7 @@
 ---
 title: Finanças regenerativas (ReFi)
 description: Uma visão geral de ReFi e casos de uso atuais.
-lang: pt-br
+lang: pt-BR
 template: use-cases
 emoji: ":recycle:"
 sidebarDepth: 2

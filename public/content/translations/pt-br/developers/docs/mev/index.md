@@ -1,7 +1,7 @@
 ---
 title: Valor máximo extraível (MEV)
 description: Uma introdução ao valor máximo extraível (MEV)
-lang: pt-br
+lang: pt-BR
 ---
 
 Valor Máximo Extraível (MEV, na sigla em inglês) expressa o valor máximo que pode ser extraído da produção de blocos que excede a recompensa padrão do bloco e sua taxa de gás através da inclusão, exclusão e alteração da ordem de transações em um determinado bloco.

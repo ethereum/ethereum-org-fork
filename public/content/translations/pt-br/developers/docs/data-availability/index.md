@@ -1,7 +1,7 @@
 ---
 title: Disponibilidade de dados
 description: Uma visão geral dos problemas e soluções relacionados à disponibilidade de dados no Ethereum
-lang: pt-br
+lang: pt-BR
 ---
 
 “Não confie, verifique” é uma máxima comum no Ethereum. A ideia é que seu nó possa verificar de modo independente se a informação que recebe está correta, executando todas as transações nos blocos que recebem dos pares, a fim de garantir que as mudanças propostas correspondam precisamente àquelas calculadas de forma independente pelo nó. Isso significa que os nós não precisam confiar na honestidade dos remetentes do bloco. Isso não é possível se estiverem faltando dados.

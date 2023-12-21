@@ -1,7 +1,7 @@
 ---
 title: Optimistic Rollups
 description: Uma introdução aos optimistic rollups, uma solução de dimensionamento usada pela comunidade Ethereum.
-lang: pt-br
+lang: pt-BR
 ---
 
 Os optimistic rollups são protocolos de camada 2 (L2) projetados para aumentar a taxa de transferência da camada base do Ethereum. Eles reduzem a computação na cadeia principal do Ethereum ao processar transações off-chain, oferecendo uma melhora significativa na velocidade de processamento. Diferentemente de outras soluções de dimensionamento, como [sidechains](/developers/docs/scaling/sidechains/), os optimistic rollups têm a sua segurança derivada da rede principal, pois publicam os resultados de suas transações on-chain. Os optimistic rollups também se diferem de [plasma chains](/developers/docs/scaling/plasma/). Estes também verificam transações no Ethereum com provas de fraude, mas fazem o armazenamento de dados em outro lugar.

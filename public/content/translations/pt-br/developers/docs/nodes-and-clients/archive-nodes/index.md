@@ -1,7 +1,7 @@
 ---
 title: Nó de arquivo Ethereum
 description: Uma visão geral dos nós de arquivo
-lang: pt-br
+lang: pt-BR
 sidebarDepth: 2
 ---
 

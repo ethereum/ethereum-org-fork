@@ -1,7 +1,7 @@
 ---
 title: Prova de conhecimento zero
 description: Uma introdução não técnica às provas de conhecimento zero para iniciantes.
-lang: pt-br
+lang: pt-BR
 ---
 
 ## O que são provas de conhecimento zero? {#what-are-zk-proofs}

@@ -1,7 +1,7 @@
 ---
 title: Testes de contratos inteligentes
 description: Uma visão geral das técnicas e considerações para testar contratos inteligentes Ethereum
-lang: pt-br
+lang: pt-BR
 ---
 
 Testar [contratos inteligentes](/developers/docs/smart-contracts/) é uma das mais importantes medidas para melhorar a [segurança do contrato inteligente](/developers/docs/smart-contracts/security/). Ao contrário do software tradicional, os contratos inteligentes normalmente não podem ser atualizados após o lançamento, tornando imperativo testar rigorosamente antes de implantar contratos na rede Ethereum.

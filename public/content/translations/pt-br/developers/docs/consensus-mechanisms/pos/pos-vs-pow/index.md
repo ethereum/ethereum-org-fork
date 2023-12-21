@@ -1,7 +1,7 @@
 ---
 title: Prova de participação versus Prova de trabalho
 description: Uma comparação entre o mecanismo de consenso baseado em prova de participação e prova de trabalho do Ethereum
-lang: pt-br
+lang: pt-BR
 ---
 
 Quando o Ethereum foi lançado, a prova de participação ainda precisava de muita pesquisa e desenvolvimento antes que pudesse ser confiável para proteger o Ethereum. A prova de trabalho era um mecanismo mais simples que já havia sido comprovado pelo Bitcoin, o que significa que os principais desenvolvedores poderiam implementá-lo imediatamente para lançar o Ethereum. Levou mais oito anos para desenvolver a prova de participação até o ponto em que poderia ser implementada.

@@ -1,7 +1,7 @@
 ---
 title: Como posso participar?
 description: Como fazer parte da comunidade Ethereum.
-lang: pt-br
+lang: pt-BR
 ---
 
 # Como posso participar? {#get-involved}

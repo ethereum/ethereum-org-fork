@@ -1,7 +1,7 @@
 ---
 title: Dagger-Hashimoto
 description: O algoritmo Dagger-Hashimoto em detalhes
-lang: pt-br
+lang: pt-BR
 ---
 
 Dagger-Hashimoto foi a implementação original de pesquisa e especificação para o algoritmo de mineração do Ethereum. Dagger-Hashimoto foi substituído por [Ethash](#ethash). A mineração foi completamente desligada na [Fusão](/updates/merge) no dia 15 de setembro de 2022. Desde então, o Ethereum foi protegido usando um mecanismo [prova de participação](/developers/docs/consensus-mechanisms/pos). Esta página é para fins históricos. As informações aqui não são mais relevantes para o Ethereum posterior à Fusão.

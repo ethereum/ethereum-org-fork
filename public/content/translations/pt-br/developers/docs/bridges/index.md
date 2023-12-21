@@ -1,7 +1,7 @@
 ---
 title: Pontes
 description: Uma visão geral da ponte para desenvolvedores
-lang: pt-br
+lang: pt-BR
 ---
 
 Com a proliferação de soluções de blockchains L1 e de [dimensionamento](/developers/docs/scaling/) L2, junto com um número cada vez maior de aplicativos descentralizados cross-chain, a necessidade de comunicação e de movimentação de ativos entre as chains tornou-se uma parte essencial da infraestrutura das redes. Há diferentes tipos de bridges para ajudar a tornar isso possível.

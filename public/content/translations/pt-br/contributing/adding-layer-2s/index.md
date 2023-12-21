@@ -1,7 +1,7 @@
 ---
 title: Adicionando Camada 2S
 description: A política que usamos ao adicionar uma camada 2 ao ethereum.org
-lang: pt-br
+lang: pt-BR
 ---
 
 # Adicionando Camada 2S {#adding-layer-2}

@@ -1,7 +1,7 @@
 ---
 title: Padrão Multi-Token ERC-1155
 description: Token
-lang: pt-br
+lang: pt-BR
 ---
 
 ## Introdução {#introduction}

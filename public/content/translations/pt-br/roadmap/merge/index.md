@@ -1,7 +1,7 @@
 ---
 title: A Fusão
 description: Aprenda sobre A Fusão — quando a Rede principal do Ethereum adotou a prova de participação.
-lang: pt-br
+lang: pt-BR
 template: upgrade
 image: /upgrades/merge.png
 alt: 

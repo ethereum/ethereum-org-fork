@@ -1,7 +1,7 @@
 ---
 title: Fundação Ethereum & Programa de Recompensas da Comunidade
 description: Uma listagem dos programas de recompensas por meio do ecossistema Ethereum.
-lang: pt-br
+lang: pt-BR
 ---
 
 # Recompensas Ethereum {#ethereum-grants}

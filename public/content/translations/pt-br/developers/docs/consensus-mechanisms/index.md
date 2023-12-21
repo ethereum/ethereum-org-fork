@@ -1,7 +1,7 @@
 ---
 title: Mecanismos de consenso
 description: Uma explicação dos protocolos de consenso em sistemas distribuídos e o papel que desempenham no Ethereum.
-lang: pt-br
+lang: pt-BR
 ---
 
 O termo "mecanismo de consenso" é frequentemente usado de forma coloquial para se referir a protocolos de "prova de participação", "prova de trabalho" ou "prova de autoridade". No entanto, esses são apenas componentes em mecanismos de consenso que protegem contra os ataques Sybil. Mecanismos de consenso são a pilha completa de ideias, protocolos e incentivos que permitem que um conjunto distribuído de nós concorde com o estado da cadeia de blocos.

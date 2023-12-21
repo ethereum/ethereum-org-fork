@@ -1,7 +1,7 @@
 ---
 title: Arquitetura do nó
 description: Introdução de como os nós Ethereum são organizados.
-lang: pt-br
+lang: pt-BR
 ---
 
 Um nó Ethereum é composto por dois clientes: um [cliente de execução](/developers/docs/nodes-and-clients/#execution-clients) e um [cliente de consenso](/developers/docs/nodes-and-clients/#consensus-clients).

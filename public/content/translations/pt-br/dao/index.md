@@ -1,7 +1,7 @@
 ---
 title: Organizações autônomas descentralizadas (DAOs)
 description: Uma visão geral de DAOs no Ethereum
-lang: pt-br
+lang: pt-BR
 template: use-cases
 emoji: ":handshake:"
 sidebarDepth: 2

@@ -1,7 +1,7 @@
 ---
 title: Árvores de Verkle
 description: Uma descrição detalhada de Verkle Trees e como elas serão utilizadas na melhoria do Ethereum
-lang: pt-br
+lang: pt-BR
 summaryPoints:
   - Saiba o que são Verkle Trees
   - Leia por que Verkle Trees são uma melhoria útil para o Ethereum

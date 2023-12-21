@@ -1,7 +1,7 @@
 ---
 title: Perguntas Frequentes
 description: Perguntas frequentes sobre a prova de participação do Ethereum.
-lang: pt-br
+lang: pt-BR
 ---
 
 ## O que é prova de participação {#what-is-proof-of-stake}

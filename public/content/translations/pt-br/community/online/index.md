@@ -1,7 +1,7 @@
 ---
 title: Comunidades online
 description: Uma listagem dos programas de recompensas por meio do ecossistema Ethereum.
-lang: pt-br
+lang: pt-BR
 ---
 
 # Comunidades online {#online-communities}

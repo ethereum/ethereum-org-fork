@@ -1,7 +1,7 @@
 ---
 title: Clientes leves
 description: Introdução aos clientes leves Ethereum.
-lang: pt-br
+lang: pt-BR
 ---
 
 Executar um nó completo é a maneira mais confiável, privada, descentralizada e resistente à censura para interagir com o Ethereum. Com um nó completo, você mantém sua própria cópia da blockchain, que pode consultar instantaneamente e obter acesso direto à rede ponto a ponto do Ethereum. No entanto, executar um nó completo requer uma quantidade significativa de memória, armazenamento e CPU. Isso significa que não é viável para todos executar seu próprio nó. Existem várias soluções para isso no roteiro do Ethereum, incluindo a falta de estado, mas elas estão a vários anos de serem implementadas. A resposta a curto prazo é trocar alguns dos benefícios de executar um nó completo para grandes melhorias de desempenho, que permitem que os nós sejam executados com requisitos de hardware muito baixos. Os nós que fazem essa troca são conhecidos como nós leves.

@@ -1,7 +1,7 @@
 ---
 title: Proposta de bloqueio
 description: Explicação de como os blocos são propostos na prova de participação do Ethereum.
-lang: pt-br
+lang: pt-BR
 ---
 
 Os blocos são as unidades fundamentais da blockchain. Blocos são unidades discretas de informação passadas entre os nós, acordadas e adicionadas ao banco de dados de cada nó. Esta página explica como elas são produzidas.

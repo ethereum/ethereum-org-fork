@@ -1,7 +1,7 @@
 ---
 title: Como trocar tokens
 description: Um guia sobre como fazer swap de tokens no Ethereum.
-lang: pt-br
+lang: pt-BR
 ---
 
 # Como trocar tokens

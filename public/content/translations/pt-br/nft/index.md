@@ -1,7 +1,7 @@
 ---
 title: Tokens não fungíveis (NFT)
 description: Uma visão geral de NFTs na Ethereum
-lang: pt-br
+lang: pt-BR
 template: use-cases
 emoji: ":frame_with_picture:"
 sidebarDepth: 2

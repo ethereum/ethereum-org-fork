@@ -1,7 +1,7 @@
 ---
 title: Rollups de conhecimento zero
 description: "Uma introdução aos rollups de zero conhecimento: uma solução de dimensionamento usada pela comunidade Ethereum."
-lang: pt-br
+lang: pt-BR
 ---
 
 Rollups de conhecimento zero (ZK-rollups) são [soluções de dimensionamento](/developers/docs/scaling/) de camada 2 que aumentam a vazão na rede principal do Ethereum movendo off-chain a computação e o armazenamento do estado. ZK-rollups podem processar milhares de transações em um lote e logo publicar apenas alguns dados mínimos resumidos para a rede principal. Este resumo de dados define as alterações que devem ser feitas ao estado do Ethereum e algumas provas criptográficas de que essas alterações estão corretas.

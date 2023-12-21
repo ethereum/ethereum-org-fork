@@ -1,7 +1,7 @@
 ---
 title: Consumo de energia da Ethereum
 description: As informações básicas que você precisa para entender o consumo de energia da Ethereum.
-lang: pt-br
+lang: pt-BR
 ---
 
 # Gasto de energia do Ethereum {#proof-of-stake-energy}

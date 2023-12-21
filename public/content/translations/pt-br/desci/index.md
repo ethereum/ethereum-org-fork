@@ -1,7 +1,7 @@
 ---
 title: Ciência descentralizada (DeSci)
 description: Uma visão geral da ciência descentralizada no Ethereum
-lang: pt-br
+lang: pt-BR
 template: use-cases
 emoji: ":microscope:"
 sidebarDepth: 2

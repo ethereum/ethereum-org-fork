@@ -1,7 +1,7 @@
 ---
 title: Áreas ativas de pesquisa do Ethereum
 description: Acesse diferentes áreas de pesquisa aberta e saiba como participar.
-lang: pt-br
+lang: pt-BR
 ---
 
 # Áreas ativas de pesquisa do Ethereum {#active-areas-of-ethereum-research}

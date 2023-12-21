@@ -7,7 +7,7 @@ tags:
   - "camada de execução"
   - "camada de consenso"
   - "nós"
-lang: pt-br
+lang: pt-BR
 skill: intermediate
 published: 2020-05-07
 source: r/ethereum

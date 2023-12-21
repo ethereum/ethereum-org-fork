@@ -1,7 +1,7 @@
 ---
 title: Adicionar câmbios
 description: A política que usamos ao adicionar câmbios ao ethereum.org
-lang: pt-br
+lang: pt-BR
 ---
 
 # Adicionar câmbios ao Ethereum {#adding-ethereum-exchanges}

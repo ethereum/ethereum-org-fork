@@ -1,7 +1,7 @@
 ---
 title: Bibliotecas de API no Backend
 description: Uma introdução as API's do Ethereum que permitem interações de seu App com a Blockchain.
-lang: pt-br
+lang: pt-BR
 ---
 
 Para um aplicativo de software interagir com a blockchain Ethereum (ou seja, leia os dados da blockchain e/ou envie transações para a rede), ele deve se conectar a um nó do Ethereum.

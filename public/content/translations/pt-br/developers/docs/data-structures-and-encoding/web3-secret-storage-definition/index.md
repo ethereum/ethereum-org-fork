@@ -1,7 +1,7 @@
 ---
 title: Definição de armazenamento secreto Web3
 description: Definição formal para armazenamento secreto web3
-lang: pt-br
+lang: pt-BR
 sidebarDepth: 2
 ---
 

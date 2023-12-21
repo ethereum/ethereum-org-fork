@@ -1,7 +1,7 @@
 ---
 title: Redes
 description: Uma visão geral das redes Ethereum e onde obter ether (ETH) da rede de testes para testar seu aplicativo.
-lang: pt-br
+lang: pt-BR
 ---
 
 Redes Ethereum são grupos de computadores conectados que se comunicam usando o protocolo Ethereum. Só há uma Ethereum Mainnet, mas redes independentes seguindo as mesmas regras de protocolo podem ser criadas para finalidade de testes e desenvolvimento. Há várias "redes" independentes que seguem o protocolo sem interagir uma com a outra. Você pode até iniciar uma localmente no seu próprio computador para testar seus contratos inteligentes e apps web3.

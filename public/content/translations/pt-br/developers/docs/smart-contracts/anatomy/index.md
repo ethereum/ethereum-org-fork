@@ -1,7 +1,7 @@
 ---
 title: Anatomia dos contratos inteligentes
 description: Uma análise aprofundada na anatomia de um contrato inteligente - funções, dados e variáveis.
-lang: pt-br
+lang: pt-BR
 ---
 
 Um contrato inteligente (smart contract) é um programa executado em um endereço na Ethereum. Eles são compostos por dados e funções que podem ser executadas ao receber uma transação. Veja aqui uma visão geral do que compõe um contrato inteligente.

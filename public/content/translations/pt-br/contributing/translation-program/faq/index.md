@@ -1,6 +1,6 @@
 ---
 title: Perguntas frequentes sobre o Programa de tradução
-lang: pt-br
+lang: pt-BR
 description: Perguntas frequentes sobre o Programa de tradução da ethereum.org
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Sidechains
 description: Uma introdução às sidechains como solução de dimensionamento atualmente utilizada pela comunidade Ethereum
-lang: pt-br
+lang: pt-BR
 sidebarDepth: 3
 ---
 

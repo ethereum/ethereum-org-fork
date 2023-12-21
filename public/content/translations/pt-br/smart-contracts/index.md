@@ -1,7 +1,7 @@
 ---
 title: Contratos inteligentes
 description: Uma introdução não técnica aos contratos inteligentes
-lang: pt-br
+lang: pt-BR
 ---
 
 # Introdução aos contratos inteligentes {#introduction-to-smart-contracts}

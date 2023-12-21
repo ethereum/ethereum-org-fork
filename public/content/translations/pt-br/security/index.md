@@ -1,7 +1,7 @@
 ---
 title: Segurança e prevenção de fraude do Ethereum
 description: Como manter a segurança no Ethereum
-lang: pt-br
+lang: pt-BR
 ---
 
 # Segurança e prevenção de fraude do Ethereum {#introduction}

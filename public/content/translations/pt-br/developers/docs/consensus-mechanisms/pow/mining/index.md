@@ -1,7 +1,7 @@
 ---
 title: Mineração
 description: Uma explicação de como a mineração funcionava no Ethereum.
-lang: pt-br
+lang: pt-BR
 ---
 
 <InfoBanner emoji=":wave:">

@@ -1,6 +1,6 @@
 ---
 title: Programa de tradução
-lang: pt-br
+lang: pt-BR
 description: Informações sobre o Programa de Tradução do ethereum.org
 ---
 

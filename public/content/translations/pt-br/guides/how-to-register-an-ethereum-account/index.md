@@ -1,7 +1,7 @@
 ---
 title: Como "registrar" uma conta Ethereum
 description: Um guia passo a passo sobre como criar uma conta Ethereum usando uma carteira.
-lang: pt-br
+lang: pt-BR
 ---
 
 # Como "registrar" uma conta Ethereum

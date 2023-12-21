@@ -1,7 +1,7 @@
 ---
 title: Segurança de um Contrato Inteligente
 description: Uma visão geral das diretrizes para a construção segura de contratos inteligentes na Ethereum
-lang: pt-br
+lang: pt-BR
 ---
 
 Os contratos inteligentes são extremamente flexíveis e capazes de controlar grandes quantidades de valor e dados, enquanto executam lógica imutável com base no código implantado na blockchain. Isto criou um vibrante ecossistema de aplicações descentralizadas e sem confiança que oferecem muitas vantagens sobre os sistemas legados. Eles também representam oportunidades para os invasores que procuram lucrar explorando vulnerabilidades em contratos inteligentes.

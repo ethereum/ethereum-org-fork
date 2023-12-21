@@ -1,7 +1,7 @@
 ---
 title: Staking como um serviço
 description: Uma visão geral de como começar com os pools de staking de ETH
-lang: pt-br
+lang: pt-BR
 template: staking
 emoji: ":money_with_wings:"
 image: /staking/leslie-saas.png

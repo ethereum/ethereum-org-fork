@@ -1,7 +1,7 @@
 ---
 title: Implantação de contratos inteligentes
 description:
-lang: pt-br
+lang: pt-BR
 ---
 
 Você precisa implantar o seu contrato inteligente para que ele esteja disponível para os usuários de uma rede Ethereum.

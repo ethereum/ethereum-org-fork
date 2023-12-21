@@ -1,6 +1,6 @@
 ---
 title: Adicionando recursos de conteúdo
-lang: pt-br
+lang: pt-BR
 description: Nossos critérios para adicionar recursos de conteúdo no ethereum.org
 ---
 

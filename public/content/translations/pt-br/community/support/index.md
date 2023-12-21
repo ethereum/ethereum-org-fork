@@ -1,7 +1,7 @@
 ---
 title: Suporte Ethereum
 description: Obtenha suporte no ecossistema Ethereum.
-lang: pt-br
+lang: pt-BR
 ---
 
 # Suporte Ethereum {#support}

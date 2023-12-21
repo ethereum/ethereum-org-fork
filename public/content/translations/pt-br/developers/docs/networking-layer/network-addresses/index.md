@@ -1,7 +1,7 @@
 ---
 title: Endereço de rede
 description: Uma introdução aos endereços de rede
-lang: pt-br
+lang: pt-BR
 sidebarDepth: 2
 ---
 

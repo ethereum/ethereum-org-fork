@@ -1,7 +1,7 @@
 ---
 title: Quem somos
 description: Sobre a equipe, a comunidade e a missão do ethereum.org
-lang: pt-br
+lang: pt-BR
 ---
 
 # Sobre o ethereum.org {#about-ethereumorg}

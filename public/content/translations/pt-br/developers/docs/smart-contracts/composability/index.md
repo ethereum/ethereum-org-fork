@@ -1,7 +1,7 @@
 ---
 title: Composição de contrato inteligente
 description:
-lang: pt-br
+lang: pt-BR
 incomplete: true
 ---
 

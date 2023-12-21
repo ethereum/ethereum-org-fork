@@ -1,7 +1,7 @@
 ---
 title: Como revogar o acesso ao contrato inteligente aos seus fundos cripto
 description: Um guia sobre como revogar o acesso explorativo ao token de contrato inteligente
-lang: pt-br
+lang: pt-BR
 ---
 
 # Como revogar o acesso ao contrato inteligente aos seus fundos cripto

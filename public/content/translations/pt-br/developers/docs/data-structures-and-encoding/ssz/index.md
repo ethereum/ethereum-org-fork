@@ -1,7 +1,7 @@
 ---
 title: Serialização simples
 description: Explicação do formato SSZ do Ethereum
-lang: pt-br
+lang: pt-BR
 sidebarDepth: 2
 ---
 

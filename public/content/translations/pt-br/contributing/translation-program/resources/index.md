@@ -1,6 +1,6 @@
 ---
 title: Recursos para tradutores
-lang: pt-br
+lang: pt-BR
 description: Recursos úteis para tradutores do ethereum.org
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Missão e visão
-lang: pt-br
+lang: pt-BR
 description: A missão e visão do Programa de Tradução do ethereum.org
 ---
 

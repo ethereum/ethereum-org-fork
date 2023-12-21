@@ -1,7 +1,7 @@
 ---
 title: Propostas de Melhorias do Ethereum (EIPs)
 description: As informações básicas de que você precisa para entender as EIPs
-lang: pt-br
+lang: pt-BR
 ---
 
 # Introdução às Propostas de Melhorias do Ethereum (EIPs) {#introduction-to-ethereum-improvement-proposals}

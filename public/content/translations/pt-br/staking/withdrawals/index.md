@@ -1,7 +1,7 @@
 ---
 title: Saque de staking
 description: Página que resume o que são os saques por staking, como eles funcionam e o que os stakers (participantes) precisam fazer para obter suas recompensas
-lang: pt-br
+lang: pt-BR
 template: staking
 image: /staking/leslie-withdrawal.png
 alt: Leslie, o rinoceronte, com suas recompensas de staking

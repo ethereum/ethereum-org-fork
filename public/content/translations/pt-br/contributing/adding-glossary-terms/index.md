@@ -1,6 +1,6 @@
 ---
 title: Adicionar termos ao glossário
-lang: pt-br
+lang: pt-BR
 description: Nossos critérios para adicionar novos termos ao glossário do ethereum.org
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Algoritmos de mineração
 description: Os algoritmos usados para mineração Ethereum
-lang: pt-br
+lang: pt-BR
 ---
 
 <InfoBanner emoji=":wave:">

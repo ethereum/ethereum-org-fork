@@ -1,7 +1,7 @@
 ---
 title: Adicionando projetos DeSci
 description: A política que usamos ao adicionar links para projetos na página DeSci no ethereum.org
-lang: pt-br
+lang: pt-BR
 ---
 
 # Adicionando projetos {#adding-projects}

@@ -1,7 +1,7 @@
 ---
 title: Camada da Rede
 description: Introdução à camada de rede Ethereum
-lang: pt-br
+lang: pt-BR
 sidebarDepth: 2
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Bibliotecas de API JavaScript
 description: Uma introdução às bibliotecas de cliente JavaScript que permitem que você interaja com a cadeia de blocos de seu aplicativo.
-lang: pt-br
+lang: pt-BR
 ---
 
 Para que um aplicativo web interaja com a cadeia de blocos Ethereum (ou seja, leia os dados da blockchain e/ou envie transações para a rede), ele deve se conectar a um nó Ethereum.

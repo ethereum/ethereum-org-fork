@@ -1,7 +1,7 @@
 ---
 title: Introdução ao Ether
 description: Introdução de um desenvolvedor à criptomoeda ETHER.
-lang: pt-br
+lang: pt-BR
 ---
 
 ## Pré-requisitos {#prerequisites}

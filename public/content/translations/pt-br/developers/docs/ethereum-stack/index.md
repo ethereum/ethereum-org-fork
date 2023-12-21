@@ -1,7 +1,7 @@
 ---
 title: Introdução à pilha de Ethereum
 description: Um passo a passo de diferentes camadas de pilha de Ethereum e como elas se encaixam.
-lang: pt-br
+lang: pt-BR
 ---
 
 Como qualquer pilha de software, a "pilha de Ethereum" completa varia de projeto a projeto dependendo do seu objetivo de negócios.

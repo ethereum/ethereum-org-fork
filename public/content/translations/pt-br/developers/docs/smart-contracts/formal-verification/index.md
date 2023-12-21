@@ -1,7 +1,7 @@
 ---
 title: Verificação formal de contratos inteligentes
 description: Uma visão geral da verificação formal de contratos inteligentes na Ethereum
-lang: pt-br
+lang: pt-BR
 ---
 
 [Contratos inteligentes](/developers/docs/smart-contracts/) permitem criar aplicativos descentralizados, sem necessidade de confiança, e robustos, que introduzem novos casos de uso e desbloqueiam valor para os usuários. Como os contratos inteligentes manipulam grandes quantidades de valor, a segurança é uma consideração crítica para desenvolvedores.

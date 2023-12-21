@@ -1,7 +1,7 @@
 ---
 title: Redes sociais descentralizadas
 description: Uma visão geral das redes sociais descentralizadas no Ethereum
-lang: pt-br
+lang: pt-BR
 template: use-cases
 emoji: ":mega:"
 sidebarDepth: 2

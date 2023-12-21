@@ -1,7 +1,7 @@
 ---
 title: Introdução aos contratos inteligentes
 description: Uma visão geral dos contratos inteligentes, centrada em suas características e limitações únicas.
-lang: pt-br
+lang: pt-BR
 ---
 
 ## O que é um contrato inteligente? {#what-is-a-smart-contract}

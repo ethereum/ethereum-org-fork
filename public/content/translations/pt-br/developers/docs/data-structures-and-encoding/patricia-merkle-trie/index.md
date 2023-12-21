@@ -1,7 +1,7 @@
 ---
 title: Árvore Merkle Patricia
 description: Introdução à àrvore Merkle Patricia
-lang: pt-br
+lang: pt-BR
 sidebarDepth: 2
 ---
 

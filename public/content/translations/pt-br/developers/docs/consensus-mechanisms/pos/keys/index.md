@@ -1,7 +1,7 @@
 ---
 title: Chaves na prova de participação do Ethereum
 description: Uma explicação das chaves usadas no mecanismo de consenso da prova de participação do Ethereum
-lang: pt-br
+lang: pt-BR
 ---
 
 O Ethereum protege os ativos do usuário usando a criptografia de chave pública-privada. A chave pública é usada como base para um endereço Ethereum — ou seja, é visível para o público em geral e utilizada como um identificador único. A chave privada (ou “secret”) deve sempre ser acessível apenas ao proprietário da conta. A chave privada é usada para “assinar” as transações e os dados para que a criptografia possa provar que o proprietário aprova alguma ação de uma chave privada específica.

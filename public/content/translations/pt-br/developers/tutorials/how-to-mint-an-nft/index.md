@@ -7,7 +7,7 @@ tags:
   - "Solidity"
   - "contratos inteligentes"
 skill: beginner
-lang: pt-br
+lang: pt-BR
 published: 2021-04-22
 ---
 

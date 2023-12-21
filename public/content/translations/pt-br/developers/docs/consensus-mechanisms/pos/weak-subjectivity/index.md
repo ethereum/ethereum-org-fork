@@ -1,7 +1,7 @@
 ---
 title: Subjetividade fraca
 description: Uma explicação de subjetividade fraca e o seu papel na prova de participação do Ethereum.
-lang: pt-br
+lang: pt-BR
 ---
 
 Subjetividade em blockchains refere-se à dependência de informações sociais para concordar com o estado atual. Pode haver vários forks válidos que são escolhidos de acordo com as informações coletadas de outros pares na rede. A questão é a objetividade a que se refere às cadeias onde existe apenas uma cadeia válida possível e que todos os nós necessariamente concordarão aplicando as suas regras codificadas. Há também um terceiro estado, conhecido como subjetivo fraco. Isso se refere a uma cadeia que pode progredir objetivamente após alguma semente inicial de informação ser recuperada socialmente.

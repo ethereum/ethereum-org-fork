@@ -1,7 +1,7 @@
 ---
 title: Atestações
 description: Uma descrição de atestações em prova de participação Ethereum.
-lang: pt-br
+lang: pt-BR
 ---
 
 Espera-se que um validador crie, assine e transmita uma atestação durante cada época. Esta página descreve como são esses certificados e como eles são processados e comunicados entre clientes de consenso.

@@ -1,7 +1,7 @@
 ---
 title: Prova de participação (PoS)
 description: Explicação do protocolo de consenso "Prova de participação" e seu papel no Ethereum.
-lang: pt-br
+lang: pt-BR
 ---
 
 A prova de participação (PoS) é a base do [mecanismo de consenso](/developers/docs/consensus-mechanisms/) do Ethereum. O Ethereum ativou seu mecanismo de prova de participação em 2022 porque é mais seguro, consome menos energia e é melhor para implementar novas soluções de escalabilidade em comparação com a arquitetura de [prova de trabalho](/developers/docs/consensus-mechanisms/pow) anterior.

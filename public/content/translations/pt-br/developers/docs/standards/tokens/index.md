@@ -1,7 +1,7 @@
 ---
 title: Padrões de token
 description: Token
-lang: pt-br
+lang: pt-BR
 incomplete: true
 ---
 

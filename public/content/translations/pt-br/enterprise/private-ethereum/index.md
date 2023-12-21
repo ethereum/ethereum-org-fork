@@ -1,7 +1,7 @@
 ---
 title: Ethereum Privado para Empresas
 description: Recursos para aplicativos corporativos em cadeias de blocos privadas de Ethereum.
-lang: pt-br
+lang: pt-BR
 ---
 
 # Ethereum privado para empresas {#private-ethereum-for-enterprise}

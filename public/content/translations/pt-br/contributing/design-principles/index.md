@@ -1,6 +1,6 @@
 ---
 title: Princípios de design
-lang: pt-br
+lang: pt-BR
 description: Os princípios por trás das decisões de design e conteúdo do ethereum.org
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Padrões de desenvolvimento Ethereum
 description: Standards
-lang: pt-br
+lang: pt-BR
 incomplete: true
 ---
 

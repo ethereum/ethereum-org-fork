@@ -1,7 +1,7 @@
 ---
 title: Como fazer transferir tokens para a camada 2
 description: Um guia explicando como mover tokens do Ethereum para a camada 2 usando uma ponte.
-lang: pt-br
+lang: pt-BR
 ---
 
 # Como fazer transferir tokens para a camada 2

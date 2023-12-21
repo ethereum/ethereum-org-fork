@@ -88,7 +88,7 @@ export type Lang =
   | "ph"
   | "pl"
   | "pt"
-  | "pt-br"
+  | "pt-BR"
   | "ro"
   | "ru"
   | "se"

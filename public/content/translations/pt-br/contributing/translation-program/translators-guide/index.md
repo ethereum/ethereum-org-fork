@@ -1,6 +1,6 @@
 ---
 title: Guia para tradutores
-lang: pt-br
+lang: pt-BR
 description: Instruções e dicas para os tradutores do ethereum.org
 ---
 

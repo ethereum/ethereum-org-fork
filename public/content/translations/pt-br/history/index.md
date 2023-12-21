@@ -1,7 +1,7 @@
 ---
 title: Histórico e bifurcações do Ethereum
 description: Uma história da blockchain Ethereum, incluindo marcos importantes, versões e bifurcações.
-lang: pt-br
+lang: pt-BR
 sidebarDepth: 1
 ---
 

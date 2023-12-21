@@ -1,7 +1,7 @@
 ---
 title: Armazenamento Descentralizado
 description: Visão geral do que é o armazenamento descentralizado e as ferramentas disponíveis para integrar a um dapp.
-lang: pt-br
+lang: pt-BR
 ---
 
 Ao contrário de um servidor localizado centralmente operado por uma única empresa ou organização, os sistemas de armazenamento descentralizado consistem em uma rede ponto a ponto de usuários operadores que mantêm uma parte dos dados gerais, criando um sistema resiliente de armazenamento e compartilhamento de arquivos. Elas podem estar em um aplicativo baseado em blockchain ou qualquer rede baseada em peer-to-peer.

@@ -1,7 +1,7 @@
 ---
 title: Governança Ethereum
 description: Uma introdução à forma como as decisões sobre a Ethereum são tomadas.
-lang: pt-br
+lang: pt-BR
 postMergeBannerTranslation: page-upgrades-post-merge-banner-governance-ood
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Prova de trabalho (PoW)
 description: Uma explicação do protocolo de consenso de prova de trabalho e seu papel no Ethereum.
-lang: pt-br
+lang: pt-BR
 ---
 
 A rede Ethereum começou usando um mecanismo de consenso que envolvia **[Prova de trabalho (PoW)](/developers/docs/consensus-mechanisms/pow)**. Isso permitiu que os nós da rede Ethereum concordassem com o estado de todas as informações registradas na cadeia de blocos Ethereum e impediu certos tipos de ataques econômicos. No entanto, o Ethereum desativou a prova de trabalho em 2022 e começou a usar a [prova de participação](/developers/docs/consensus-mechanisms/pos).

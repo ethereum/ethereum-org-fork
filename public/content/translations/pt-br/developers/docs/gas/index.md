@@ -1,7 +1,7 @@
 ---
 title: Gás e taxas
 description:
-lang: pt-br
+lang: pt-BR
 ---
 
 O gás é essencial para a rede Ethereum. É o combustível que permite que ele funcione, da mesma forma que um carro precisa de gasolina para funcionar.

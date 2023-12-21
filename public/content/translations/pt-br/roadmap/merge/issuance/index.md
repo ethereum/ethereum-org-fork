@@ -1,7 +1,7 @@
 ---
 title: Como a Fusão afetou o fornecimento de ETH
 description: Detalhamento de como a Fusão afetou o fornecimento de ETH
-lang: pt-br
+lang: pt-BR
 ---
 
 # Como A Fusão afetou o fornecimento de ETH {#how-the-merge-impacts-ETH-supply}

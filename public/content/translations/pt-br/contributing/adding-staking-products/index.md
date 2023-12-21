@@ -1,7 +1,7 @@
 ---
 title: Adicionando participação em produtos e serviços
 description: A política que usamos ao adicionar participações em produtos e serviços no ethereum.org
-lang: pt-br
+lang: pt-BR
 ---
 
 # Adicionando participação em produtos e serviços {#adding-staking-products-or-services}

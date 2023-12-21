@@ -1,7 +1,7 @@
 ---
 title: Identidade descentralizada
 description: O que é uma identidade descentralizada e por que isso importa?
-lang: pt-br
+lang: pt-BR
 template: use-cases
 emoji: ":id:"
 sidebarDepth: 2

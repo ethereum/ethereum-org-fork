@@ -1,7 +1,7 @@
 ---
 title: Gasper
 description: Uma explicação do mecanismo de prova de participação do Gasper.
-lang: pt-br
+lang: pt-BR
 ---
 
 Gasper é uma combinação de Casper, o Gadget de Finalidade Amigável (Casper-FFG) e o algoritmo de escolha do fork de LMD-GHOST. Juntos, esses componentes formam o mecanismo de consenso que garante a prova de participação do Ethereum. Casper é o mecanismo que atualiza certos blocos para "finalizados" para que os novos participantes da rede possam ter certeza de que estão sincronizando a cadeia canônica. O algoritmo de escolha de fork usa votos acumulados para garantir que os nós possam selecionar facilmente o correto quando surgirem forks na blockchain.

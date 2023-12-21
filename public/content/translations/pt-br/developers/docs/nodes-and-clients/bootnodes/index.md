@@ -1,7 +1,7 @@
 ---
 title: Introdução aos bootnodes Ethereum
 description: As informações básicas de que você precisa para entender os bootnodes
-lang: pt-br
+lang: pt-BR
 ---
 
 Quando um novo nó se junta à rede Ethereum, ele precisa se conectar aos nós que já estão na rede para descobrir novos pares. Esses pontos de entrada na rede Ethereum são chamados de bootnodes. Geralmente, os clientes têm uma lista de bootnodes codificados neles. Esses bootnodes são tipicamente executados pela equipe de devops da Ethereum Foundation ou pelas próprias equipes de clientes. Observe que os nós de inicialização não são iguais aos nós estáticos. Os nós estáticos são chamados por várias vezes, enquanto os bootnodes são chamados apenas se não houver pares suficientes para se conectar e um nó precisar inicializar algumas novas conexões.

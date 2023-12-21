@@ -7,7 +7,7 @@ tags:
   - "Alchemy"
   - "Solidity"
 skill: beginner
-lang: pt-br
+lang: pt-BR
 published: 2021-04-22
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Finanças descentralizadas (DeFi)
 description: Uma visão geral do DeFi na Ethereum
-lang: pt-br
+lang: pt-BR
 template: use-cases
 emoji: ":money_with_wings:"
 image: /use-cases/defi.png

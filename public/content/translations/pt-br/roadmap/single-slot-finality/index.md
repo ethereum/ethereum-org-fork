@@ -1,7 +1,7 @@
 ---
 title: Finalidade de espaço único
 description: Explicação da finalidade de espaço único
-lang: pt-br
+lang: pt-BR
 ---
 
 # Finalidade de espaço único {#single-slot-finality}

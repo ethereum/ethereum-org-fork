@@ -1,7 +1,7 @@
 ---
 title: Ethash
 description: O algoritmo de mineração Ethash em detalhes
-lang: pt-br
+lang: pt-BR
 ---
 
 <InfoBanner emoji=":wave:">

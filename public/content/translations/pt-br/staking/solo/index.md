@@ -1,7 +1,7 @@
 ---
 title: Faça staking indivual com seu ETH
 description: Uma visão geral de como começar a fazer staking individual com seu ETH
-lang: pt-br
+lang: pt-BR
 template: staking
 emoji: ":money_with_wings:"
 image: /staking/leslie-solo.png

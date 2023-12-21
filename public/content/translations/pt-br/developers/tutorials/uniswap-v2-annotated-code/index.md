@@ -6,7 +6,7 @@ tags:
   - "solidity"
 skill: intermediate
 published: 2021-05-01
-lang: pt-br
+lang: pt-BR
 ---
 
 ## Introdução {#introduction}

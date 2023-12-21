@@ -1,7 +1,7 @@
 ---
 title: Linguagens de programação
 description:
-lang: pt-br
+lang: pt-BR
 ---
 
 Um erro comum é que os desenvolvedores devem escrever [contratos inteligentes](/developers/docs/smart-contracts/) Para desenvolver na Ethereum. Isso é falso. Uma das belezas da rede e comunidade Ethereum é que você pode [participar](/community/)com apenas uma linguagem de programação.

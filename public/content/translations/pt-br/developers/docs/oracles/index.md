@@ -1,7 +1,7 @@
 ---
 title: Oráculos
 description: Oráculos fornecem contratos inteligentes Ethereum com acesso a dados do mundo real, desbloqueando mais casos de uso e maior valor para os usuários.
-lang: pt-br
+lang: pt-BR
 ---
 
 Oráculos são feeds de dados que trazem dados de fontes de dados fora da blockchain (off-chain) e os colocam na blockchain (on-chain) para uso em contratos inteligentes. Isso é necessário porque os contratos inteligentes executados no Ethereum não podem acessar informações armazenadas fora da rede blockchain.

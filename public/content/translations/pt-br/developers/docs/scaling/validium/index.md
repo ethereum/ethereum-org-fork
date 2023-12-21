@@ -1,7 +1,7 @@
 ---
 title: Validium
 description: Uma introdução ao Validium como uma solução de dimensionamento atualmente utilizada pela comunidade Ethereum.
-lang: pt-br
+lang: pt-BR
 sidebarDepth: 3
 ---
 

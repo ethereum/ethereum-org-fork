@@ -1,6 +1,6 @@
 ---
 title: Como traduzir
-lang: pt-br
+lang: pt-BR
 description: Instruções de uso do Crowdin para traduzir o ethereum.org
 ---
 

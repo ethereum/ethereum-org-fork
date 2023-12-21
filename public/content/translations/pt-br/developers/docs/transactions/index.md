@@ -1,7 +1,7 @@
 ---
 title: Transações
 description: "Uma visão geral das transações no Ethereum: como elas funcionam, sua estrutura de dados e como enviá-las através de um aplicativo."
-lang: pt-br
+lang: pt-BR
 ---
 
 Transações são instruções assinadas criptograficamente de contas. Uma conta iniciará uma transação para atualizar o estado da rede Ethereum. A transação mais simples é transferir ETH de uma conta para outra.

@@ -1,7 +1,7 @@
 ---
 title: Como usar uma carteira
 description: Uma guia explicando como enviar, receber tokens e conectar-se aos projetos da web3.
-lang: pt-br
+lang: pt-BR
 ---
 
 # Como usar uma carteira

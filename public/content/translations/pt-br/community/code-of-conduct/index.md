@@ -1,7 +1,7 @@
 ---
 title: Código de Conduta
 description: As normas básicas que buscamos nos espaços do ethereum.org.
-lang: pt-br
+lang: pt-BR
 ---
 
 ## Missão {#mission}

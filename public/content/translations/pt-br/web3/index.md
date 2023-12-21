@@ -1,7 +1,7 @@
 ---
 title: O que é Web3 e por que é importante?
 description: Uma introdução à Web3 — a próxima evolução da Internet — e por que ela é importante.
-lang: pt-br
+lang: pt-BR
 ---
 
 # Introdução à Web3 {#introduction}
