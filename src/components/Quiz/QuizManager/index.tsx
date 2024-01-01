@@ -1,16 +1,14 @@
 import { useMemo, useState } from "react"
-import { useTranslation } from "react-i18next"
 import { FaGithub } from "react-icons/fa"
 import { Box, Flex, Icon, Stack, Text, useDisclosure } from "@chakra-ui/react"
 
-import { QuizStatus } from "@/lib/types"
+import { QuizStatus, QuizzesSection } from "@/lib/types"
+import { RawQuizzes } from "@/lib/interfaces"
 
 import { ButtonLink } from "@/components/Buttons"
 import Translation from "@/components/Translation"
 
 import { trackCustomEvent } from "@/lib/utils/matomo"
-
-import { ethereumBasicsQuizzes, usingEthereumQuizzes } from "@/data/quizzes"
 
 import { INITIAL_QUIZ } from "@/lib/constants"
 
@@ -27,10 +25,39 @@ const handleGHAdd = () =>
     eventName: "GH_add",
   })
 
-const QuizManager = () => {
-  const { t } = useTranslation()
+type QuizPageKeys = "quizzes-stats"
 
-  const [userStats, updateUserStats] = useLocalQuizData()
+type QuizListSection = {
+  headingId: string
+  descriptionId: string
+  QuizMeta: QuizzesSection[]
+}
+
+type QuizManagerProps = {
+  /**
+   * This is the key for the local storage data.
+   */
+  userStatsKey: QuizPageKeys
+  /**
+   * The entire data set to be used in the manager instance
+   */
+  allQuizData: RawQuizzes
+  /**
+   * One or more sets of quiz section meta for this manager instance.
+   * Needs to match the complete data set from `allQuizData`
+   */
+  quizListSections: [QuizListSection, ...QuizListSection[]]
+}
+
+const QuizManager = ({
+  allQuizData,
+  quizListSections,
+  userStatsKey,
+}: QuizManagerProps) => {
+  const [userStats, updateUserStats] = useLocalQuizData({
+    userStatsKey,
+    allQuizData,
+  })
   const [quizStatus, setQuizStatus] = useState<QuizStatus>("neutral")
   const [currentQuiz, setCurrentQuiz] = useState(INITIAL_QUIZ)
   const { onOpen, isOpen, onClose } = useDisclosure()
@@ -57,18 +84,17 @@ const QuizManager = () => {
         <Flex direction={{ base: "column-reverse", lg: "row" }} columnGap="20">
           <Stack spacing="10" flex="1">
             <Box>
-              <QuizzesList
-                content={ethereumBasicsQuizzes}
-                headingId={t("learn-quizzes:basics")}
-                descriptionId={t("learn-quizzes:basics-description")}
-                {...commonQuizListProps}
-              />
-              <QuizzesList
-                content={usingEthereumQuizzes}
-                headingId={t("learn-quizzes:using-ethereum")}
-                descriptionId={t("learn-quizzes:using-ethereum-description")}
-                {...commonQuizListProps}
-              />
+              {quizListSections.map(
+                ({ QuizMeta, descriptionId, headingId }) => (
+                  <QuizzesList
+                    key={headingId}
+                    headingId={headingId}
+                    descriptionId={descriptionId}
+                    content={QuizMeta}
+                    {...commonQuizListProps}
+                  />
+                )
+              )}
             </Box>
             <Flex
               direction={{ base: "column", xl: "row" }}

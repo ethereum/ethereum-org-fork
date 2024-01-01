@@ -13,8 +13,12 @@ import QuizManager from "@/components/Quiz/QuizManager"
 
 import { existsNamespace } from "@/lib/utils/existsNamespace"
 import { getLastDeployDate } from "@/lib/utils/getLastDeployDate"
-import { trackCustomEvent } from "@/lib/utils/matomo"
 import { getRequiredNamespacesForPage } from "@/lib/utils/translations"
+
+import allQuizzesData, {
+  ethereumBasicsQuizzes,
+  usingEthereumQuizzes,
+} from "@/data/quizzes"
 
 import HeroImage from "@/public/heroes/quizzes-hub-hero.png"
 
@@ -51,7 +55,22 @@ const QuizzesHubPage: NextPage<
         header={t("learn-quizzes:test-your-knowledge")}
         heroImg={HeroImage}
       />
-      <QuizManager />
+      <QuizManager
+        userStatsKey="quizzes-stats"
+        allQuizData={allQuizzesData}
+        quizListSections={[
+          {
+            descriptionId: t("learn-quizzes:basics-description"),
+            headingId: t("learn-quizzes:basics"),
+            QuizMeta: ethereumBasicsQuizzes,
+          },
+          {
+            descriptionId: t("learn-quizzes:using-ethereum-description"),
+            headingId: t("learn-quizzes:using-ethereum"),
+            QuizMeta: usingEthereumQuizzes,
+          },
+        ]}
+      />
       <Box w="full" py="4" px="8">
         <FeedbackCard />Q
       </Box>
