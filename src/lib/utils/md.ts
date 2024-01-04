@@ -330,7 +330,7 @@ export const getContentBySlug = (slug: string) => {
   const fileContents = fs.readFileSync(fullPath, "utf8")
   const { data, content } = matter(fileContents)
   const frontmatter = data as Frontmatter
-  const items: Omit<MdPageContent, "tocItems" | "crowdinContributors"> = {
+  const items: Omit<MdPageContent, "tocItems" | "crowdinContributors" | "imageBlurData"> = {
     slug,
     content,
     frontmatter,
@@ -359,7 +359,7 @@ export const getTutorialsData = (locale: string): ITutorial[] => {
       const fileContents = fs.readFileSync(filePath, "utf8")
       const { data, content } = matter(fileContents)
       const frontmatter = data as Frontmatter
-      
+
       return {
         to: join(`/${locale}/developers/tutorials`, dir),
         title: frontmatter.title,
@@ -369,7 +369,7 @@ export const getTutorialsData = (locale: string): ITutorial[] => {
         skill: frontmatter.skill as Skill,
         timeToRead: Math.round(readingTime(content).minutes),
         published: dateToString(frontmatter.published),
-        lang: frontmatter.lang, 
+        lang: frontmatter.lang,
         isExternal: false,
       }
     })

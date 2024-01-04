@@ -132,7 +132,10 @@ export const upgradeComponents = {
 
 interface IProps
   extends ChildOnlyProp,
-    Pick<MdPageContent, "slug" | "tocItems" | "lastUpdatedDate"> {
+    Pick<
+      MdPageContent,
+      "slug" | "tocItems" | "lastUpdatedDate" | "imageBlurData"
+    > {
   frontmatter: UpgradeFrontmatter
 }
 export const UpgradeLayout: React.FC<IProps> = ({
@@ -141,6 +144,7 @@ export const UpgradeLayout: React.FC<IProps> = ({
   slug,
   tocItems,
   lastUpdatedDate,
+  imageBlurData,
 }) => {
   const { t } = useTranslation("page-upgrades")
   const { locale } = useRouter()
@@ -200,6 +204,8 @@ export const UpgradeLayout: React.FC<IProps> = ({
             height={525}
             style={{ objectFit: "cover" }}
             priority
+            placeholder="blur"
+            blurDataURL={imageBlurData[frontmatter.image]}
             flex={{ base: "1 1 100%", md: "none" }}
             alignSelf={{ base: "center", md: "flex-end" }}
           />

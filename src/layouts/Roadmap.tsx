@@ -66,7 +66,7 @@ export const roadmapComponents = {
 
 interface IProps
   extends ChildOnlyProp,
-    Pick<MdPageContent, "slug" | "tocItems"> {
+    Pick<MdPageContent, "slug" | "tocItems" | "imageBlurData"> {
   frontmatter: RoadmapFrontmatter
 }
 export const RoadmapLayout: React.FC<IProps> = ({
@@ -74,6 +74,7 @@ export const RoadmapLayout: React.FC<IProps> = ({
   frontmatter,
   slug,
   tocItems,
+  imageBlurData,
 }) => {
   // TODO: Replace with direct token implementation after UI migration is completed
   const lgBp = useToken("breakpoints", "lg")
@@ -183,6 +184,8 @@ export const RoadmapLayout: React.FC<IProps> = ({
               width={1504}
               height={345}
               priority
+              placeholder="blur"
+              blurDataURL={imageBlurData[frontmatter.image]}
             />
           </Center>
         </HeroContainer>
