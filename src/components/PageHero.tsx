@@ -1,3 +1,4 @@
+import type { StaticImageData } from "next/image"
 import type { ReactNode } from "react"
 import { Box, Center, Flex, Heading, Wrap, WrapItem } from "@chakra-ui/react"
 
@@ -7,7 +8,7 @@ import {
   type ButtonLinkProps,
   type ButtonProps,
 } from "@/components/Buttons"
-import { Image, type ImageProps } from "@/components/Image"
+import { Image } from "@/components/Image"
 import Text from "@/components/OldText"
 
 import { type MatomoEventOptions, trackCustomEvent } from "@/lib/utils/matomo"
@@ -27,7 +28,7 @@ export type ContentType = {
   title: ReactNode
   header: ReactNode
   subtitle: ReactNode
-  image: ImageProps["src"]
+  image: StaticImageData
   alt: string
 }
 
@@ -161,6 +162,7 @@ const PageHero = ({
           }}
           alt={alt}
           priority
+          placeholder="blur"
         />
       </Center>
     </Flex>

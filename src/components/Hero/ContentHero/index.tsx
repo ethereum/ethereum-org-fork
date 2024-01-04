@@ -24,6 +24,7 @@ const ContentHero = (props: ContentHeroProps) => {
             src={heroImg}
             alt=""
             priority
+            placeholder="blur"
             style={{ objectFit: "contain" }}
             boxSize="full"
           />

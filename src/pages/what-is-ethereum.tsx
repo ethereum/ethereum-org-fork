@@ -329,6 +329,7 @@ const WhatIsEthereumPage = ({
               src={hero}
               alt={t("page-what-is-ethereum-alt-img-bazaar")}
               priority
+              placeholder="blur"
             />
           </Hero>
         </Flex>

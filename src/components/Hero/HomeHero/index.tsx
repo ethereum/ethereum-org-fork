@@ -21,6 +21,7 @@ const HomeHero = ({ heroImg }: HomeHeroProps) => {
           w="full"
           h="full"
           priority
+          placeholder="blur"
           style={{ objectFit: "cover" }}
         />
       </Box>

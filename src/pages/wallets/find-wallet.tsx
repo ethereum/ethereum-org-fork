@@ -174,9 +174,8 @@ const FindWalletPage = () => {
             width={600}
             alt=""
             priority
-            style={{
-              objectFit: "contain",
-            }}
+            placeholder="blur"
+            style={{ objectFit: "contain" }}
           />
         </Center>
       </Flex>
