@@ -322,3 +322,15 @@ export type StatsBoxMetric = {
   apiUrl: string
   apiProvider: string
 }
+
+// Markdown image types for blurred base64 data
+export type ImageSrcPath = {
+  src: string
+  fullPath: string
+}
+
+type Source = string
+
+type BlurDataUrl = string
+
+export type ImageBlurData = Record<Source, BlurDataUrl>

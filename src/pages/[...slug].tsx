@@ -1,3 +1,4 @@
+import fs from "fs"
 import { join } from "path"
 import { ParsedUrlQuery } from "querystring"
 
@@ -10,10 +11,13 @@ import type { SSRConfig } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { MDXRemote, type MDXRemoteSerializeResult } from "next-mdx-remote"
 import { serialize } from "next-mdx-remote/serialize"
+import { getPlaiceholder } from "plaiceholder"
 import readingTime from "reading-time"
 import remarkGfm from "remark-gfm"
 
 import type {
+  ImageBlurData,
+  ImageSrcPath,
   Lang,
   Layout,
   LayoutMappingType,
@@ -116,6 +120,11 @@ export const getStaticProps = (async (context) => {
   const tocCallback = (toc: TocNodeType): void => {
     tocNodeItems = "items" in toc ? toc.items : []
   }
+
+  const pageImagePaths: ImageSrcPath[] = []
+  const pageImagesCallback = (srcPath: ImageSrcPath): void => {
+    pageImagePaths.push(srcPath)
+  }
   const mdxSource = await serialize(markdown.content, {
     mdxOptions: {
       remarkPlugins: [
@@ -124,11 +133,32 @@ export const getStaticProps = (async (context) => {
         [remarkInferToc, { callback: tocCallback }],
       ],
       rehypePlugins: [
-        [rehypeImg, { dir: mdDir, srcPath: mdPath, locale }],
+        [
+          rehypeImg,
+          {
+            dir: mdDir,
+            srcPath: mdPath,
+            locale,
+            callback: pageImagesCallback,
+          },
+        ],
         [rehypeHeadingIds],
       ],
     },
   })
+
+  frontmatter.image &&
+    pageImagePaths.push({
+      src: frontmatter.image,
+      fullPath: join(process.cwd(), "public", frontmatter.image),
+    })
+
+  const imageBlurData: ImageBlurData = {}
+  for (const { src, fullPath } of pageImagePaths) {
+    const imageBuffer = fs.readFileSync(fullPath)
+    const { base64 } = await getPlaiceholder(imageBuffer)
+    imageBlurData[src] = base64
+  }
 
   const timeToRead = readingTime(markdown.content)
   const tocItems = remapTableOfContents(tocNodeItems, mdxSource.compiledSource)
@@ -171,6 +201,7 @@ export const getStaticProps = (async (context) => {
       timeToRead: Math.round(timeToRead.minutes),
       tocItems,
       crowdinContributors,
+      imageBlurData,
     },
   }
 }) satisfies GetStaticProps<Props, Params>
@@ -202,6 +233,7 @@ ContentPage.getLayout = (page) => {
     timeToRead,
     tocItems,
     crowdinContributors,
+    imageBlurData,
   } = page.props
 
   const layoutProps = {
@@ -211,6 +243,7 @@ ContentPage.getLayout = (page) => {
     timeToRead,
     tocItems,
     crowdinContributors,
+    imageBlurData,
   }
   const Layout = layoutMapping[layout]
 

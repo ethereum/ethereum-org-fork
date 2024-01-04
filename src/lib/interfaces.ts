@@ -1,9 +1,9 @@
 import { StaticImageData } from "next/image"
-import type { ReactNode } from "react"
 
 import type {
   CrowdinContributor,
   Frontmatter,
+  ImageBlurData,
   Lang,
   Layout,
   ToCItem,
@@ -154,6 +154,7 @@ export interface MdPageContent {
   lastUpdatedDate?: string
   contentNotTranslated: boolean
   crowdinContributors: CrowdinContributor[]
+  imageBlurData: ImageBlurData
 }
 
 // Local environment framework
