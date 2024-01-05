@@ -3,7 +3,6 @@ import { StaticImageData } from "next/image"
 import type {
   CrowdinContributor,
   Frontmatter,
-  ImageBlurData,
   Lang,
   Layout,
   ToCItem,
@@ -98,6 +97,7 @@ interface SummaryPoints {
 interface ImageInfo {
   image: string
   alt: string
+  imageBlurData: string
 }
 
 export interface UpgradeFrontmatter
@@ -154,7 +154,6 @@ export interface MdPageContent {
   lastUpdatedDate?: string
   contentNotTranslated: boolean
   crowdinContributors: CrowdinContributor[]
-  imageBlurData: ImageBlurData
 }
 
 // Local environment framework

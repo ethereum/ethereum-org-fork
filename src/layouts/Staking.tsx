@@ -183,7 +183,7 @@ export const stakingComponents = {
 
 interface IProps
   extends ChildOnlyProp,
-    Pick<MdPageContent, "slug" | "tocItems" | "imageBlurData"> {
+    Pick<MdPageContent, "slug" | "tocItems"> {
   frontmatter: StakingFrontmatter
 }
 
@@ -192,7 +192,6 @@ export const StakingLayout: React.FC<IProps> = ({
   frontmatter,
   slug,
   tocItems,
-  imageBlurData,
 }) => {
   const { t } = useTranslation("page-staking")
   // TODO: Replace with direct token implementation after UI migration is completed
@@ -279,7 +278,7 @@ export const StakingLayout: React.FC<IProps> = ({
           height={340}
           priority
           placeholder="blur"
-          blurDataURL={imageBlurData[frontmatter.image]}
+          blurDataURL={frontmatter.imageBlurData}
         />
       </HeroContainer>
       <Page>

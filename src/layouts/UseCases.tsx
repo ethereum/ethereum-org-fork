@@ -81,7 +81,7 @@ export const useCasesComponents = {
 
 interface IProps
   extends ChildOnlyProp,
-    Pick<MdPageContent, "slug" | "tocItems" | "imageBlurData"> {
+    Pick<MdPageContent, "slug" | "tocItems"> {
   frontmatter: UseCasesFrontmatter
 }
 export const UseCasesLayout: React.FC<IProps> = ({
@@ -89,7 +89,6 @@ export const UseCasesLayout: React.FC<IProps> = ({
   frontmatter,
   slug,
   tocItems,
-  imageBlurData,
 }) => {
   const { asPath: relativePath } = useRouter()
   const { t } = useTranslation("template-usecase")
@@ -218,7 +217,7 @@ export const UseCasesLayout: React.FC<IProps> = ({
           style={{ objectFit: "cover" }}
           priority
           placeholder="blur"
-          blurDataURL={imageBlurData[frontmatter.image]}
+          blurDataURL={frontmatter.imageBlurData}
           alignSelf={{
             base: "center",
             lg: "normal",

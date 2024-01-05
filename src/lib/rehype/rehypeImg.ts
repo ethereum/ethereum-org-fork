@@ -5,8 +5,6 @@ import sizeOf from "image-size"
 import type { Plugin } from "unified"
 import { visit } from "unist-util-visit"
 
-import type { ImageSrcPath } from "@/lib/types"
-
 import {
   checkIfImageIsTranslated,
   getTranslatedImgPath,
@@ -18,7 +16,6 @@ interface Options {
   dir: string
   srcPath: string
   locale: string
-  callback: (srcPath: ImageSrcPath) => void
 }
 
 /**
@@ -54,7 +51,7 @@ const getImageSize = (src: string, dir: string) => {
  */
 
 const setImageSize: Plugin<[Options], Root> = (options) => {
-  const { dir, srcPath, locale, callback } = options || {}
+  const { dir, srcPath, locale } = options || {}
 
   return (tree, _file) => {
     visit(tree, "element", (node) => {
@@ -65,10 +62,6 @@ const setImageSize: Plugin<[Options], Root> = (options) => {
         if (!dimensions) {
           return
         }
-
-        // Pass the image src and full path to the callback
-        const fullPath = path.join(_file.cwd, dir, src)
-        callback({ src, fullPath })
 
         // Replace slashes from windows paths with forward slashes
         const originalPath = path.join(srcPath, src).replace(/\\/g, "/")

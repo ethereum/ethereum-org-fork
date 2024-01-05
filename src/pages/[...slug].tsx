@@ -16,8 +16,6 @@ import readingTime from "reading-time"
 import remarkGfm from "remark-gfm"
 
 import type {
-  ImageBlurData,
-  ImageSrcPath,
   Lang,
   Layout,
   LayoutMappingType,
@@ -121,10 +119,6 @@ export const getStaticProps = (async (context) => {
     tocNodeItems = "items" in toc ? toc.items : []
   }
 
-  const pageImagePaths: ImageSrcPath[] = []
-  const pageImagesCallback = (srcPath: ImageSrcPath): void => {
-    pageImagePaths.push(srcPath)
-  }
   const mdxSource = await serialize(markdown.content, {
     mdxOptions: {
       remarkPlugins: [
@@ -139,7 +133,6 @@ export const getStaticProps = (async (context) => {
             dir: mdDir,
             srcPath: mdPath,
             locale,
-            callback: pageImagesCallback,
           },
         ],
         [rehypeHeadingIds],
@@ -147,17 +140,11 @@ export const getStaticProps = (async (context) => {
     },
   })
 
-  frontmatter.image &&
-    pageImagePaths.push({
-      src: frontmatter.image,
-      fullPath: join(process.cwd(), "public", frontmatter.image),
-    })
-
-  const imageBlurData: ImageBlurData = {}
-  for (const { src, fullPath } of pageImagePaths) {
-    const imageBuffer = fs.readFileSync(fullPath)
+  if ("image" in frontmatter) {
+    const heroImagePath = join(process.cwd(), "public", frontmatter.image)
+    const imageBuffer = fs.readFileSync(heroImagePath)
     const { base64 } = await getPlaiceholder(imageBuffer)
-    imageBlurData[src] = base64
+    frontmatter.imageBlurData = base64
   }
 
   const timeToRead = readingTime(markdown.content)
@@ -201,7 +188,6 @@ export const getStaticProps = (async (context) => {
       timeToRead: Math.round(timeToRead.minutes),
       tocItems,
       crowdinContributors,
-      imageBlurData,
     },
   }
 }) satisfies GetStaticProps<Props, Params>
@@ -233,7 +219,6 @@ ContentPage.getLayout = (page) => {
     timeToRead,
     tocItems,
     crowdinContributors,
-    imageBlurData,
   } = page.props
 
   const layoutProps = {
@@ -243,7 +228,6 @@ ContentPage.getLayout = (page) => {
     timeToRead,
     tocItems,
     crowdinContributors,
-    imageBlurData,
   }
   const Layout = layoutMapping[layout]
 
