@@ -216,7 +216,6 @@ export const UseCasesLayout: React.FC<IProps> = ({
           height={610}
           style={{ objectFit: "cover" }}
           priority
-          placeholder="blur"
           blurDataURL={frontmatter.imageBlurData}
           alignSelf={{
             base: "center",

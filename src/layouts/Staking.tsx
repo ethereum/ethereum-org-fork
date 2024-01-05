@@ -277,7 +277,6 @@ export const StakingLayout: React.FC<IProps> = ({
           width={400}
           height={340}
           priority
-          placeholder="blur"
           blurDataURL={frontmatter.imageBlurData}
         />
       </HeroContainer>

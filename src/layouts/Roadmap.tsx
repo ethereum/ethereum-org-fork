@@ -183,7 +183,6 @@ export const RoadmapLayout: React.FC<IProps> = ({
               width={1504}
               height={345}
               priority
-              placeholder="blur"
               blurDataURL={frontmatter.imageBlurData}
             />
           </Center>

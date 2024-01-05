@@ -200,7 +200,6 @@ export const UpgradeLayout: React.FC<IProps> = ({
             height={525}
             style={{ objectFit: "cover" }}
             priority
-            placeholder="blur"
             blurDataURL={frontmatter.imageBlurData}
             flex={{ base: "1 1 100%", md: "none" }}
             alignSelf={{ base: "center", md: "flex-end" }}

@@ -162,7 +162,6 @@ const PageHero = ({
           }}
           alt={alt}
           priority
-          placeholder="blur"
         />
       </Center>
     </Flex>

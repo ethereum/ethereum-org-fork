@@ -405,7 +405,6 @@ const EthPage = () => {
               width={800}
               alt={t("page-eth-whats-eth-hero-alt")}
               priority
-              placeholder="blur"
             />
           </Hero>
         </HeroContainer>

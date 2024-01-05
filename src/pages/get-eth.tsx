@@ -220,7 +220,6 @@ const GetEthPage = ({
           maxH="400px"
           alt={t("page-get-eth-hero-image-alt")}
           priority
-          placeholder="blur"
         />
         <Flex
           flexDir="column"

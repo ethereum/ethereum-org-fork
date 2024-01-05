@@ -20,7 +20,6 @@ const HubHero = (props: CommonHeroProps) => {
         src={heroImg}
         alt=""
         priority
-        placeholder="blur"
         sizes="100vw"
         style={{ width: "100vw", objectFit: "cover" }}
         h={{
