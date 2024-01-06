@@ -1,5 +1,4 @@
 import { StaticImageData } from "next/image"
-import type { ReactNode } from "react"
 
 import type {
   CrowdinContributor,
@@ -102,8 +101,8 @@ interface ImageInfo {
 
 export interface UpgradeFrontmatter
   extends SharedFrontmatter,
-  SummaryPointsNumbered,
-  ImageInfo { }
+    SummaryPointsNumbered,
+    ImageInfo {}
 
 export interface RoadmapFrontmatter extends SharedFrontmatter, ImageInfo {
   buttons: {
@@ -116,15 +115,15 @@ export interface RoadmapFrontmatter extends SharedFrontmatter, ImageInfo {
 
 export interface UseCasesFrontmatter
   extends SharedFrontmatter,
-  SummaryPointsNumbered,
-  ImageInfo {
+    SummaryPointsNumbered,
+    ImageInfo {
   emoji: string
 }
 
 export interface StakingFrontmatter
   extends SharedFrontmatter,
-  SummaryPoints,
-  ImageInfo {
+    SummaryPoints,
+    ImageInfo {
   emoji: string
 }
 
