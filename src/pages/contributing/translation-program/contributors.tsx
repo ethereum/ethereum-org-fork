@@ -1,6 +1,6 @@
 import { useRouter } from "next/router"
 import { GetStaticProps } from "next/types"
-import { SSRConfig, useTranslation } from "next-i18next"
+import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import {
   Box,
@@ -28,10 +28,6 @@ import { getRequiredNamespacesForPage } from "@/lib/utils/translations"
 
 import allTimeData from "../../../data/translation-reports/alltime/alltime-data.json"
 
-type Props = SSRConfig & {
-  lastDeployDate: string
-}
-
 export const getStaticProps = (async ({ locale }) => {
   const lastDeployDate = getLastDeployDate()
 
@@ -50,7 +46,9 @@ export const getStaticProps = (async ({ locale }) => {
   }
 }) satisfies GetStaticProps<BasePageProps>
 
-const Content = (props: BoxProps) => <Box as={MainArticle} py={4} px={10} w="full" {...props} />
+const Content = (props: BoxProps) => (
+  <Box as={MainArticle} py={4} px={10} w="full" {...props} />
+)
 const ContentHeading = (props: HeadingProps) => (
   <OldHeading lineHeight={1.4} {...props} />
 )
@@ -64,6 +62,7 @@ const Contributors = () => {
 
   // TODO: Remove specific user checks once Acolad has updated their usernames
   const translatorData =
+    // @ts-expect-error Not able to type `allTimeData` (too big). Need to create a type signature.
     allTimeData.data.flatMap(
       // use flatMap to get cleaner object types withouts nulls
       (item) => {
