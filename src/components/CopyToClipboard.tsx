@@ -1,4 +1,4 @@
-import { useEffect, useRef,useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import ClipboardJS from "clipboard"
 import { Box } from "@chakra-ui/react"
 
@@ -28,11 +28,11 @@ const CopyToClipboard: React.FC<IProps> = ({
       text: () => text,
     })
 
-    clipboard.on("success", (e) => {
+    clipboard.on("success", () => {
       afterCopy()
     })
 
-    clipboard.on("error", (e) => {
+    clipboard.on("error", () => {
       console.log("error: failed to copy text")
     })
 
