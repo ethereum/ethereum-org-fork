@@ -7,8 +7,7 @@ export const getSummaryPoints = (
   // Place summary points into an array, guarding for `undefined` values
   const summaryPoints: Array<string> = []
   for (let i = 1; i <= count; i++) {
-    // @ts-ignore
-    const summaryPoint = frontmatter[`summaryPoint${i}`] as string
+    const summaryPoint = frontmatter[`summaryPoint${i}`] as string | undefined
     if (summaryPoint) {
       summaryPoints.push(summaryPoint)
     }
