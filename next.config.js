@@ -36,6 +36,11 @@ module.exports = (phase, { defaultConfig }) => {
     i18n,
     images: {
       deviceSizes: [640, 750, 828, 1080, 1200, 1504, 1920],
+      domains: [
+        "user-images.githubusercontent.com",
+        "gateway.pinata.cloud",
+        "cdn-images-1.medium.com",
+      ],
     },
   }
 
