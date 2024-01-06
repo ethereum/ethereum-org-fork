@@ -11,7 +11,8 @@
   },
   "plugins": [
     "simple-import-sort",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "unused-imports"
   ],
   "parser": "@typescript-eslint/parser",
   "rules": {
@@ -99,6 +100,7 @@
       {
         "fixToUnknown": true
       }
-    ]
+    ],
+    "unused-imports/no-unused-imports-ts": 2
   }
 }

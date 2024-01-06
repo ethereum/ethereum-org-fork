@@ -73,6 +73,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-storybook": "^0.6.15",
+    "eslint-plugin-unused-imports": "3.0.0",
     "image-size": "^1.0.2",
     "mdast-util-toc": "^7.0.0",
     "minimist": "^1.2.8",
