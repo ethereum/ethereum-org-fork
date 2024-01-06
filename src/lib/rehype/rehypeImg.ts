@@ -56,7 +56,7 @@ const setImageSize: Plugin<[Options], Root> = (options) => {
   const srcPath = opts.srcPath
   const locale = opts.locale
 
-  return (tree, _file) => {
+  return (tree) => {
     visit(tree, "element", (node) => {
       if (node.tagName === "img" && node.properties) {
         const src = node.properties.src as string
