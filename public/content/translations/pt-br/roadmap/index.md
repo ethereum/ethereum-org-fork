@@ -3,7 +3,7 @@ title: Planejamento Ethereum
 description: O caminho para mais escalabilidade, segurança e sustentabilidade no Ethereum.
 lang: pt-br
 template: roadmap
-image: /roadmap/roadmap-main.png
+image: /images/roadmap/roadmap-main.png
 alt: "Planejamento Ethereum"
 summaryPoints:
 buttons:

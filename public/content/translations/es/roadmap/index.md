@@ -3,7 +3,7 @@ title: Hoja de ruta de Ethereum
 description: El camino hacia una mayor escalabilidad, seguridad y sostenibilidad para Ethereum.
 lang: es
 template: roadmap
-image: /roadmap/roadmap-main.png
+image: /images/roadmap/roadmap-main.png
 alt: "Hoja de ruta de Ethereum"
 summaryPoints:
 buttons:

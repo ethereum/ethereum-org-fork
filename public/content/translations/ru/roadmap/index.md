@@ -3,7 +3,7 @@ title: Дорожная карта Ethereum
 description: Путь к большей масштабируемости, безопасности и экологичности Ethereum.
 lang: ru
 template: roadmap
-image: /roadmap/roadmap-main.png
+image: /images/roadmap/roadmap-main.png
 alt: "Дорожная карта Ethereum"
 summaryPoints:
 buttons:

@@ -3,7 +3,7 @@ title: La Beacon Chain
 description: Informati rigurado alla Beacon Chain - l'aggiornamento che ha introdotto la prova-di-interesse Ethereum.
 lang: it
 template: upgrade
-image: /upgrades/core.png
+image: /images/upgrades/core.png
 alt: 
 summaryPoint1: La Beacon Chain ha introdotto il proof-of-stake nell'ecosistema Ethereum.
 summaryPoint2: È stata fusa con la catena di proof-of-work originale di Ethereum nel settembre 2022.
