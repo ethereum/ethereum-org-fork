@@ -51,18 +51,18 @@ const PageMetadata: React.FC<IProps> = ({
   const canonical = canonicalUrl || url
 
   /* Set fallback ogImage based on path */
-  let ogImage = "/home/hero.png"
+  let ogImage = "/images/home/hero.png"
 
   if (slug.includes("developers")) {
-    ogImage = "/enterprise-eth.png"
+    ogImage = "/images/enterprise-eth.png"
   }
 
   if (slug.includes("dapps")) {
-    ogImage = "/doge-computer.png"
+    ogImage = "/images/doge-computer.png"
   }
 
   if (slug.includes("roadmap")) {
-    ogImage = "/upgrades/upgrade_doge.png"
+    ogImage = "/images/upgrades/upgrade_doge.png"
   }
 
   if (image) {

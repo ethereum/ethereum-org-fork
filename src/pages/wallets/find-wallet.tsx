@@ -43,7 +43,7 @@ import walletData from "@/data/wallets/wallet-data"
 
 import { NAV_BAR_PX_HEIGHT } from "@/lib/constants"
 
-import FindWalletHeroImage from "@/public/wallets/find-wallet-hero.png"
+import FindWalletHeroImage from "@/public/images/wallets/find-wallet-hero.png"
 
 const Subtitle = ({ children }: ChildOnlyProp) => (
   <Text

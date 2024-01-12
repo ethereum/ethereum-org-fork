@@ -3,7 +3,7 @@ title: زنجیره بیکن
 description: در مورد زنجیره‌ی بیکن یاد بگیرید - ارتقایی که اثبات سهام را برای اتریوم به ارمغان می‌آورد.
 lang: fa
 template: upgrade
-image: /upgrades/core.png
+image: /images/upgrades/core.png
 alt: 
 summaryPoint1: زنجیره‌ی بیکن هیچ چیز مربوط به اتریومی را که امروزه استفاده می‌کنیم، تغییر نمی‌دهد.
 summaryPoint2: بلکه شبکه را متناسب کرده و به عنوان یک لایه اجماع عمل می‌کند.

@@ -3,7 +3,7 @@ title: The Merge
 description: Дізнайтеся про об’єднання (The Merge) — коли головна мережа Ethereum прийняла модель доказу частки.
 lang: uk
 template: upgrade
-image: /upgrades/merge.png
+image: /images/upgrades/merge.png
 alt: 
 summaryPoint1: Головна мережа Ethereum використовує модель доказу, але так було не завжди.
 summaryPoint2: Терміном «The Merge» (об’єднання) назвали перехід від оригінального механізму підтвердження роботи до моделі доказу частки.

@@ -28,7 +28,7 @@ import { ethereumBasicsQuizzes, usingEthereumQuizzes } from "@/data/quizzes"
 
 import { INITIAL_QUIZ } from "@/lib/constants"
 
-import HeroImage from "@/public/heroes/quizzes-hub-hero.png"
+import HeroImage from "@/public/images/heroes/quizzes-hub-hero.png"
 
 const handleGHAdd = () =>
   trackCustomEvent({

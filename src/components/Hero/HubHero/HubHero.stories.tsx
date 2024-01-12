@@ -26,7 +26,7 @@ export default meta
 
 import { CommonHeroProps } from "@/lib/types"
 
-import learnHubHeroImg from "../../../../public/heroes/learn-hub-hero.png"
+import learnHubHeroImg from "@/public/images/heroes/learn-hub-hero.png"
 
 export const HubHero: StoryObj<typeof meta> = {
   args: {

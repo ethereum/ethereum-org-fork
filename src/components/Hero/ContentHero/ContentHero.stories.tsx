@@ -5,7 +5,7 @@ import ContentHeroComponent, { ContentHeroProps } from "."
 
 type ContentHeroType = typeof ContentHeroComponent
 
-import contentHeroImg from "../../../../public/mainnet.png"
+import contentHeroImg from "@/public/images/mainnet.png"
 
 const meta = {
   title: "Organisms / Layouts / Hero",
